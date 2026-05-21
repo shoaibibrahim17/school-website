@@ -1,15 +1,5 @@
 ---
-import HeroContent, { FloatBlob } from './react/HeroSection.jsx';
+import HeroContent from './react/HeroSection.jsx';
 ---
 
-<section id="hero" class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-white">
-  <div class="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-brand-50 z-0"></div>
-
-  <FloatBlob client:load class="absolute top-40 right-10 w-72 h-72 bg-brand-200/30 rounded-full blur-3xl" delay={0} />
-  <FloatBlob client:load class="absolute bottom-20 -left-10 w-96 h-96 bg-teal-200/30 rounded-full blur-3xl" delay={1.5} />
-  <FloatBlob client:load class="absolute top-1/3 left-1/4 w-48 h-48 bg-brand-100/40 rounded-full blur-3xl" delay={0.8} />
-
-  <div class="absolute inset-0 opacity-[0.015] z-1" style="background-image: linear-gradient(#4f46e5 1px, transparent 1px), linear-gradient(90deg, #4f46e5 1px, transparent 1px); background-size: 50px 50px;"></div>
-
-  <HeroContent client:load />
-</section>
+<HeroContent client:load />
