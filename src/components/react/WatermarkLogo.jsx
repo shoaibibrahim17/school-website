@@ -1,0 +1,24 @@
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+
+export default function WatermarkLogo({ className = '', opacity = 'opacity-[0.05]', blur = 'blur-[2px]', size = 'w-[400px] sm:w-[600px] lg:w-[800px]' }) {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start end', 'end start'],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], [0, -40]);
+
+  return (
+    <div ref={ref} className={`absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden ${className}`}>
+      <motion.div style={{ y }} className="flex items-center justify-center">
+        <img
+          src="/logo.svg"
+          alt=""
+          className={`${size} ${opacity} ${blur} object-contain`}
+          aria-hidden="true"
+        />
+      </motion.div>
+    </div>
+  );
+}

@@ -1,19 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const navVariants = {
-  top: {
-    backgroundColor: 'rgba(255, 255, 255, 0)',
-    backdropFilter: 'blur(0px)',
-    borderBottom: '1px solid rgba(255,255,255,0)',
-  },
-  scrolled: {
-    backgroundColor: 'rgba(255, 255, 255, 0.8)',
-    backdropFilter: 'blur(20px)',
-    borderBottom: '1px solid rgba(229, 231, 235, 0.5)',
-  },
-};
-
 const linkVariants = {
   rest: { scale: 1 },
   hover: { scale: 1.05 },
@@ -68,9 +55,11 @@ export default function AnimatedNavbar({ logo, schoolName, tagline, navLinks }) 
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-        variants={navVariants}
-        className="fixed top-0 left-0 right-0 z-50 transition-shadow duration-500"
+        className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
         style={{
+          backgroundColor: scrolled ? 'rgba(255, 255, 255, 0.8)' : 'rgba(255, 255, 255, 0)',
+          backdropFilter: scrolled ? 'blur(20px)' : 'blur(0px)',
+          borderBottom: scrolled ? '1px solid rgba(229, 231, 235, 0.5)' : '1px solid rgba(255,255,255,0)',
           boxShadow: scrolled ? '0 1px 3px rgba(0,0,0,0.05)' : 'none',
         }}
       >
@@ -78,20 +67,17 @@ export default function AnimatedNavbar({ logo, schoolName, tagline, navLinks }) 
           <div className="flex justify-between items-center h-16 lg:h-20">
             <motion.a
               href="/"
-              className="flex items-center gap-3 group"
+              className="flex items-center gap-3 sm:gap-4 group"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
               <div className="relative flex-shrink-0">
-                <motion.div
-                  animate={{ rotate: scrolled ? 0 : [0, -5, 0] }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <img src={logo} alt={`${schoolName} Logo`} className="w-11 h-11 lg:w-14 lg:h-14 object-contain" />
-                </motion.div>
+                <div className="w-11 h-11 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-xl bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center shadow-md shadow-brand-200/50 group-hover:shadow-lg group-hover:shadow-brand-200/70 transition-shadow duration-300">
+                  <img src={logo} alt={`${schoolName} Logo`} className="w-7 h-7 sm:w-9 sm:h-9 lg:w-10 lg:h-10 object-contain brightness-0 invert" />
+                </div>
               </div>
               <div>
-                <span className="text-sm sm:text-base lg:text-xl font-bold text-gray-900 block leading-tight">{schoolName}</span>
+                <span className="text-xs sm:text-sm lg:text-lg font-bold text-gray-900 block leading-tight group-hover:text-brand-600 transition-colors">{schoolName}</span>
                 <span className="text-[10px] sm:text-xs text-brand-600 font-medium">{tagline}</span>
               </div>
             </motion.a>
@@ -129,7 +115,7 @@ export default function AnimatedNavbar({ logo, schoolName, tagline, navLinks }) 
               aria-label="Toggle navigation menu"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={mobileOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={mobileOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'} />
               </svg>
             </motion.button>
           </div>
