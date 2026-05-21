@@ -47,9 +47,9 @@ const achievements = [
     </div>
 
     <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-      <div class="relative">
-        <div class="grid grid-cols-2 gap-4">
-          <div class="space-y-4">
+      <div class="relative px-4 sm:px-0">
+        <div class="grid grid-cols-2 gap-3 sm:gap-4">
+          <div class="space-y-3 sm:space-y-4">
             <div class="aspect-square rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform duration-500">
               <img
                 src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=400&h=400&fit=crop"
@@ -65,7 +65,7 @@ const achievements = [
               />
             </div>
           </div>
-          <div class="space-y-4 pt-8">
+          <div class="space-y-3 sm:space-y-4 pt-4 sm:pt-8">
             <div class="aspect-square rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform duration-500">
               <img
                 src="https://images.unsplash.com/photo-1577896337318-499c150c47d4?w=400&h=400&fit=crop"
@@ -83,17 +83,17 @@ const achievements = [
           </div>
         </div>
 
-        <div class="absolute -bottom-4 -right-4 bg-brand-600 text-white rounded-2xl p-6 shadow-lg hover:scale-105 transition-transform">
-          <div class="text-4xl font-bold">20+</div>
-          <div class="text-sm font-medium">Years of Excellence</div>
+        <div class="absolute -bottom-4 right-0 sm:-right-4 bg-brand-600 text-white rounded-2xl p-4 sm:p-6 shadow-lg hover:scale-105 transition-transform">
+          <div class="text-2xl sm:text-4xl font-bold">20+</div>
+          <div class="text-xs sm:text-sm font-medium">Years of Excellence</div>
         </div>
 
-        <div class="absolute -top-4 -left-4 bg-white rounded-2xl p-4 shadow-md border border-gray-100">
-          <div class="flex gap-4">
+        <div class="absolute -top-4 left-0 sm:-left-4 bg-white rounded-2xl p-3 sm:p-4 shadow-md border border-gray-100">
+          <div class="flex gap-2 sm:gap-4">
             {achievements.map((ach) => (
               <div class="text-center">
-                <div class="text-xl font-bold text-brand-600">{ach.number}</div>
-                <div class="text-xs text-gray-500">{ach.label}</div>
+                <div class="text-base sm:text-xl font-bold text-brand-600">{ach.number}</div>
+                <div class="text-[10px] sm:text-xs text-gray-500">{ach.label}</div>
               </div>
             ))}
           </div>

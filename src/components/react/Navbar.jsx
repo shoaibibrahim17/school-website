@@ -33,9 +33,9 @@ export default function AnimatedNavbar({ logo, schoolName, tagline, navLinks }) 
               <div className="relative flex-shrink-0">
                 <img src={logo} alt={`${schoolName} Logo`} className="w-12 h-12 lg:w-14 lg:h-14 object-contain" />
               </div>
-              <div className="hidden sm:block">
-                <span className="text-lg lg:text-xl font-bold text-gray-900 block leading-tight">{schoolName}</span>
-                <span className="text-xs text-brand-600 font-medium">{tagline}</span>
+              <div className="block ml-1 sm:ml-0">
+                <span className="text-sm sm:text-lg lg:text-xl font-bold text-gray-900 block leading-tight">{schoolName}</span>
+                <span className="hidden sm:block text-xs text-brand-600 font-medium">{tagline}</span>
               </div>
             </motion.a>
 
@@ -66,7 +66,7 @@ export default function AnimatedNavbar({ logo, schoolName, tagline, navLinks }) 
             </motion.a>
 
             <motion.button
-              className="lg:hidden p-2 text-gray-600 hover:text-brand-600 transition-colors"
+              className="lg:hidden p-3 text-gray-600 hover:text-brand-600 transition-colors"
               onClick={() => setMobileOpen(!mobileOpen)}
               whileTap={{ scale: 0.9 }}
               aria-label="Toggle navigation menu"
@@ -143,11 +143,11 @@ export default function AnimatedNavbar({ logo, schoolName, tagline, navLinks }) 
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 1, duration: 0.5 }}
-        className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 lg:hidden"
+        className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 lg:hidden bottom-safe"
       >
         <motion.a
           href="#contact"
-          className="flex items-center gap-2 px-8 py-4 bg-brand-600 text-white font-bold rounded-full shadow-lg shadow-brand-600/30"
+          className="flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-brand-600 text-white font-bold rounded-full shadow-lg shadow-brand-600/30 text-sm sm:text-base"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
