@@ -1,0 +1,104 @@
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+
+const galleryItems = [
+  { title: 'Smart Classroom', category: 'Academic', image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&h=450&fit=crop' },
+  { title: 'Annual Sports Day', category: 'Sports', image: 'https://images.unsplash.com/photo-1461896836934-voices-of-color?w=600&h=450&fit=crop' },
+  { title: 'Art & Craft Exhibition', category: 'Creative', image: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&h=450&fit=crop' },
+  { title: 'Science Fair', category: 'Academic', image: 'https://images.unsplash.com/photo-1564325724739-bae0bd08762c?w=600&h=450&fit=crop' },
+  { title: 'Music & Dance', category: 'Creative', image: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=600&h=450&fit=crop' },
+  { title: 'Annual Day Celebration', category: 'Events', image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&h=450&fit=crop' },
+];
+
+const categories = ['All', 'Academic', 'Sports', 'Creative', 'Events'];
+
+const itemVariants = {
+  hidden: { opacity: 0, scale: 0.9, y: 20 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: { duration: 0.4, ease: [0.25, 0.1, 0.25, 1] },
+  },
+  exit: {
+    opacity: 0,
+    scale: 0.9,
+    y: -20,
+    transition: { duration: 0.3 },
+  },
+};
+
+export default function GalleryContent() {
+  const [activeCategory, setActiveCategory] = useState('All');
+
+  const filteredItems =
+    activeCategory === 'All'
+      ? galleryItems
+      : galleryItems.filter((item) => item.category === activeCategory);
+
+  return (
+    <>
+      <div className="flex flex-wrap justify-center gap-3 mb-10">
+        {categories.map((category) => (
+          <motion.button
+            key={category}
+            className={`px-5 py-2.5 rounded-xl font-medium text-sm transition-all duration-300 ${
+              category === activeCategory
+                ? 'bg-brand-600 text-white shadow-sm'
+                : 'bg-white text-gray-600 hover:bg-brand-50 hover:text-brand-600 border border-gray-200'
+            }`}
+            onClick={() => setActiveCategory(category)}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            {category}
+          </motion.button>
+        ))}
+      </div>
+
+      <motion.div
+        className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        layout
+      >
+        <AnimatePresence mode="popLayout">
+          {filteredItems.map((item) => (
+            <motion.div
+              key={item.title}
+              className="group relative overflow-hidden rounded-xl aspect-[4/3] cursor-pointer"
+              variants={itemVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              layout
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.3 }}
+            >
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-900/80 via-brand-700/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+              <motion.div
+                className="absolute inset-0 flex items-center justify-center"
+                initial={{ opacity: 0 }}
+                whileHover={{ opacity: 1 }}
+              >
+                <div className="text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                  <p className="text-white font-bold text-lg">{item.title}</p>
+                  <p className="text-brand-200 text-sm">{item.category}</p>
+                </div>
+              </motion.div>
+
+              <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-lg">
+                <span className="text-xs font-medium text-brand-600">{item.category}</span>
+              </div>
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </motion.div>
+    </>
+  );
+}
