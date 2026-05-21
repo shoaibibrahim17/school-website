@@ -67,18 +67,18 @@ export default function AnimatedNavbar({ logo, schoolName, tagline, navLinks }) 
           <div className="flex justify-between items-center h-16 lg:h-20">
             <motion.a
               href="/"
-              className="flex items-center gap-3 sm:gap-4 group"
+              className="flex items-center gap-4 sm:gap-5 group"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
               <div className="relative flex-shrink-0">
-                <div className="w-11 h-11 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-xl bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center shadow-md shadow-brand-200/50 group-hover:shadow-lg group-hover:shadow-brand-200/70 transition-shadow duration-300">
-                  <img src={logo} alt={`${schoolName} Logo`} className="w-7 h-7 sm:w-9 sm:h-9 lg:w-10 lg:h-10 object-contain brightness-0 invert" />
+                <div className="w-14 h-14 sm:w-18 sm:h-18 lg:w-20 lg:h-20 rounded-2xl bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center shadow-lg shadow-brand-200/50 group-hover:shadow-xl group-hover:shadow-brand-300/50 transition-all duration-300 ring-2 ring-brand-400/20 group-hover:ring-brand-400/40">
+                  <img src={logo} alt={`${schoolName} Logo`} className="w-9 h-9 sm:w-11 sm:h-11 lg:w-12 lg:h-12 object-contain brightness-0 invert" />
                 </div>
               </div>
               <div>
-                <span className="text-xs sm:text-sm lg:text-lg font-bold text-gray-900 block leading-tight group-hover:text-brand-600 transition-colors">{schoolName}</span>
-                <span className="text-[10px] sm:text-xs text-brand-600 font-medium">{tagline}</span>
+                <span className="text-sm sm:text-base lg:text-xl font-bold text-gray-900 block leading-tight group-hover:text-brand-600 transition-colors">{schoolName}</span>
+                <span className="text-[11px] sm:text-xs lg:text-sm text-brand-600 font-semibold tracking-wide uppercase">{tagline}</span>
               </div>
             </motion.a>
 
