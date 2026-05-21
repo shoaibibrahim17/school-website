@@ -1,0 +1,28 @@
+# build output
+dist/
+
+# dependencies
+node_modules/
+
+# Astro cache
+.astro/
+
+# local env files
+.env
+.env.*
+.env.production
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# macOS-specific files
+.DS_Store
+
+# JetBrains IDE
+.idea/
+
+# VS Code
+.vscode/*

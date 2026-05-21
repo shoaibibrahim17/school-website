@@ -1,0 +1,24 @@
+---
+import AnimatedNavbar from './react/Navbar.jsx';
+
+const navLinks = [
+  { name: "Home", href: "#" },
+  { name: "About", href: "#about" },
+  { name: "Academics", href: "#academics" },
+  { name: "Facilities", href: "#facilities" },
+  { name: "Gallery", href: "#gallery" },
+  { name: "Notices", href: "#notices" },
+  { name: "Contact", href: "#contact" },
+];
+
+const schoolName = "Mother's Care High School";
+const tagline = "Est. 2011";
+---
+
+<AnimatedNavbar
+  client:load
+  logo="/logo.svg"
+  schoolName={schoolName}
+  tagline={tagline}
+  navLinks={navLinks}
+/>

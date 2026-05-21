@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-05-21T12:00:00.000Z",
+  "title": "Design System: Mother's Care High School",
+  "extensions": {
+    "colorMeta": {
+      "primary": { "role": "primary", "displayName": "Trust Blue", "canonical": "oklch(0.54 0.245 285)", "tonalRamp": ["oklch(0.15 0.04 285)", "oklch(0.25 0.08 285)", "oklch(0.35 0.14 285)", "oklch(0.45 0.20 285)", "oklch(0.54 0.245 285)", "oklch(0.65 0.18 285)", "oklch(0.75 0.12 285)", "oklch(0.88 0.05 285)"] },
+      "primary-light": { "role": "primary-container", "displayName": "Trust Blue Tint", "canonical": "oklch(0.95 0.015 285)" },
+      "primary-deep": { "role": "primary-hover", "displayName": "Deep Trust Blue", "canonical": "oklch(0.45 0.22 285)" },
+      "accent-warm": { "role": "secondary", "displayName": "Calm Teal", "canonical": "oklch(0.53 0.131 190)", "tonalRamp": ["oklch(0.15 0.02 190)", "oklch(0.25 0.04 190)", "oklch(0.35 0.07 190)", "oklch(0.45 0.10 190)", "oklch(0.53 0.131 190)", "oklch(0.65 0.10 190)", "oklch(0.78 0.06 190)", "oklch(0.90 0.03 190)"] },
+      "neutral-bg": { "role": "surface", "displayName": "Clean White" },
+      "neutral-surface": { "role": "surface-variant", "displayName": "Warm Surface" },
+      "neutral-text": { "role": "on-surface", "displayName": "Anchor Text" },
+      "neutral-muted": { "role": "on-surface-variant", "displayName": "Muted Text" }
+    },
+    "shadows": [
+      { "name": "card-hover", "value": "0 20px 40px rgba(79, 70, 229, 0.12)", "purpose": "Hover elevation for cards and interactive containers." },
+      { "name": "button-hover", "value": "0 8px 24px rgba(79, 70, 229, 0.25)", "purpose": "Hover elevation for primary CTA buttons." },
+      { "name": "modal", "value": "0 25px 50px rgba(0, 0, 0, 0.15)", "purpose": "Drawer, overlay, and modal elements." }
+    ],
+    "motion": [
+      { "name": "ease-standard", "value": "cubic-bezier(0.25, 0.1, 0.25, 1)", "purpose": "Default easing for state transitions." },
+      { "name": "ease-out-quart", "value": "cubic-bezier(0.25, 0.46, 0.45, 0.94)", "purpose": "Scroll reveals and entrance animations." },
+      { "name": "duration-fast", "value": "200ms", "purpose": "Micro-interactions, hover states." },
+      { "name": "duration-normal", "value": "500ms", "purpose": "Scroll reveals, state transitions." },
+      { "name": "duration-slow", "value": "800ms", "purpose": "Hero entrance, page-load choreography." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Primary CTA used for enroll, apply, submit actions.",
+      "html": "<button class=\"ds-btn-primary\">Enroll Now</button>",
+      "css": ".ds-btn-primary { background: #4f46e5; color: #fff; padding: 16px 32px; font-family: Inter, system-ui, sans-serif; font-weight: 600; font-size: 1rem; border: none; border-radius: 12px; cursor: pointer; transition: transform 0.2s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.2s cubic-bezier(0.25, 0.1, 0.25, 1); } .ds-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(79, 70, 229, 0.25); } .ds-btn-primary:focus-visible { outline: 2px solid #4f46e5; outline-offset: 2px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Secondary outline button for learn more, schedule visit.",
+      "html": "<button class=\"ds-btn-secondary\">Learn More</button>",
+      "css": ".ds-btn-secondary { background: transparent; color: #4f46e5; padding: 16px 32px; font-family: Inter, system-ui, sans-serif; font-weight: 600; font-size: 1rem; border: 2px solid #4f46e5; border-radius: 12px; cursor: pointer; transition: transform 0.2s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.2s cubic-bezier(0.25, 0.1, 0.25, 1), background 0.2s; } .ds-btn-secondary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(79, 70, 229, 0.15); background: #eef2ff; } .ds-btn-secondary:focus-visible { outline: 2px solid #4f46e5; outline-offset: 2px; }"
+    },
+    {
+      "name": "Navigation Link",
+      "kind": "nav",
+      "refersTo": "navigation",
+      "description": "Desktop navigation link with underline hover indicator.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-link\" href=\"#\">Home</a><a class=\"ds-nav-link\" href=\"#\">About</a><a class=\"ds-nav-link ds-nav-active\" href=\"#\">Academics</a><a class=\"ds-nav-link\" href=\"#\">Contact</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 4px; } .ds-nav-link { position: relative; padding: 8px 20px; color: #6b7280; font-family: Inter, system-ui, sans-serif; font-weight: 500; font-size: 0.9375rem; text-decoration: none; border-radius: 9999px; transition: color 0.2s; } .ds-nav-link::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 0; height: 2px; background: #4f46e5; border-radius: 2px; transition: width 0.2s cubic-bezier(0.25, 0.1, 0.25, 1); } .ds-nav-link:hover { color: #4f46e5; } .ds-nav-link:hover::after { width: 60%; } .ds-nav-active { color: #4f46e5; } .ds-nav-active::after { width: 60%; }"
+    },
+    {
+      "name": "Feature Card",
+      "kind": "card",
+      "refersTo": "card-default",
+      "description": "Standard content card with icon, title, description, and hover effect.",
+      "html": "<div class=\"ds-card\"><div class=\"ds-card-icon\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z\"/></svg></div><h3 class=\"ds-card-title\">Academic Excellence</h3><p class=\"ds-card-desc\">Comprehensive SSC curriculum with conceptual understanding.</p></div>",
+      "css": ".ds-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 24px; transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.1, 0.25, 1); cursor: default; } .ds-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(79, 70, 229, 0.12); } .ds-card-icon { width: 56px; height: 56px; background: linear-gradient(135deg, #4f46e5, #0d9488); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #fff; margin-bottom: 16px; transition: transform 0.3s; } .ds-card:hover .ds-card-icon { transform: scale(1.1) rotate(3deg); } .ds-card-title { font-family: Inter, system-ui, sans-serif; font-weight: 600; font-size: 1.125rem; color: #111827; margin: 0 0 8px; } .ds-card-desc { font-family: Inter, system-ui, sans-serif; font-size: 0.875rem; color: #6b7280; line-height: 1.6; margin: 0; }"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Standard text input with focus state.",
+      "html": "<input class=\"ds-input\" type=\"text\" placeholder=\"Your Name\">",
+      "css": ".ds-input { width: 100%; padding: 12px 16px; font-family: Inter, system-ui, sans-serif; font-size: 1rem; color: #111827; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; outline: none; transition: border-color 0.2s, box-shadow 0.2s; } .ds-input:focus { border-color: transparent; box-shadow: 0 0 0 2px #4f46e5; } .ds-input::placeholder { color: #9ca3af; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Warm Horizon",
+    "overview": "A bright, forward-looking school website that feels grounded in trust. This is not a trendy ed-tech landing page. It is the digital front door of a respected institution where parents send their children for a decade of formative education.\n\nThe system balances warmth with structure. Ample whitespace, generous rounded corners, and a calm blue-primary palette create approachable professionalism. Motion is purposeful but restrained: scroll reveals and hover feedback that feel responsive, not theatrical. The design exists to build confidence in parents, not to show off.",
+    "keyCharacteristics": [
+      "Light and airy with purposeful color accents",
+      "Rounded everything but not juvenile — radii stop at 16px for containers",
+      "Gradient-free surfaces at rest; gradients reserved for interactive elements only",
+      "Typography-driven hierarchy with a single committed sans family",
+      "Scroll-reveal animations that are gentle, not bouncy",
+      "Mobile-first spacing that breathes generously on desktop"
+    ],
+    "rules": [
+      { "name": "The Gradient Ban", "body": "Gradients on text (background-clip: text) are prohibited. Emphasis comes from weight, size, and color — not decorative texture. Solid color is more confident.", "section": "colors" },
+      { "name": "The Single-Gradient Rule", "body": "Gradient backgrounds are reserved for primary CTAs only. Every other surface uses solid color. When a gradient is used, it moves warm-blue to teal, not indigo to purple.", "section": "colors" },
+      { "name": "The Scale Rule", "body": "Minimum ratio between typographic steps is 1.25. Never reduce contrast by picking adjacent weights.", "section": "typography" },
+      { "name": "The Flat-by-Default Rule", "body": "Shadows are responses, not decorations. At rest, every surface is flat.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do use Trust Blue as the single committed accent color across the site.",
+      "Do keep backgrounds light and surfaces clean. White and warm-surface are the two primary backgrounds.",
+      "Do use gentle scroll-reveal animations (opacity + 20px translateY, 0.6s ease-out).",
+      "Do vary spacing between sections for rhythm. Not every section gets the same padding.",
+      "Do ensure all interactive elements have visible focus indicators.",
+      "Do lead with real imagery. School life, campus, students — photography builds trust.",
+      "Do use Inter at distinct weight intervals (400/600/700) for clear hierarchy."
+    ],
+    "donts": [
+      "Don't use gradient text (background-clip: text). Use solid color.",
+      "Don't use Indigo-to-Purple gradients. The brand moves blue-to-teal when gradients are needed.",
+      "Don't rely on cards as the only layout pattern. Vary composition across sections.",
+      "Don't use side-stripe borders (border-left greater than 1px for accent). Use full border, tinted background, or nothing.",
+      "Don't animate CSS layout properties. Avoid animating width, height, or grid properties.",
+      "Don't use bounce or elastic easings. Stick to ease-out-quart / ease-out-quint.",
+      "Don't wrap everything in a max-width container. Let some elements breathe edge-to-edge.",
+      "Don't use glassmorphism (backdrop-blur + semi-transparency) as a default card style. Reserve for overlay contexts only.",
+      "Don't use generic stock photos of unrelated children. Use imagery that reflects the actual school community where possible.",
+      "Don't use the hero-metric template (big number, small label, gradient accent, supporting stats). Counters belong in a dedicated stats section."
+    ]
+  }
+}

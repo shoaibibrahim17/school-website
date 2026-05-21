@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import HeroSection from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Principal from '../components/Principal.astro';
+import Facilities from '../components/Facilities.astro';
+import Gallery from '../components/Gallery.astro';
+import Notices from '../components/Notices.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout>
+  <Navbar />
+  <main class="relative z-10">
+    <HeroSection />
+    <About />
+    <Principal />
+    <Facilities />
+    <Gallery />
+    <Notices />
+    <Contact />
+  </main>
+  <Footer />
+</Layout>

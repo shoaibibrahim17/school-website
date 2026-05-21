@@ -1,0 +1,131 @@
+---
+import { motion } from 'framer-motion';
+
+const galleryItems = [
+  { title: "Smart Classroom", category: "Academic", image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&h=450&fit=crop" },
+  { title: "Annual Sports Day", category: "Sports", image: "https://images.unsplash.com/photo-1461896836934-voices-of-color?w=600&h=450&fit=crop" },
+  { title: "Art & Craft Exhibition", category: "Creative", image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&h=450&fit=crop" },
+  { title: "Science Fair", category: "Academic", image: "https://images.unsplash.com/photo-1564325724739-bae0bd08762c?w=600&h=450&fit=crop" },
+  { title: "Music & Dance", category: "Creative", image: "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=600&h=450&fit=crop" },
+  { title: "Annual Day Celebration", category: "Events", image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&h=450&fit=crop" },
+];
+
+const categories = ["All", "Academic", "Sports", "Creative", "Events"];
+---
+
+<section id="gallery" class="py-20 lg:py-28 bg-gradient-to-br from-slate-50 via-white to-brand-50 relative overflow-hidden">
+  <div class="absolute top-20 left-10 w-64 h-64 bg-brand-100/30 rounded-full blur-3xl"></div>
+  <div class="absolute bottom-20 right-10 w-64 h-64 bg-teal-100/30 rounded-full blur-3xl"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="text-center mb-14 lg:mb-18 scroll-reveal">
+      <span class="inline-block px-4 py-1.5 bg-brand-50 text-brand-700 font-semibold text-sm rounded-full mb-4">
+        Our Gallery
+      </span>
+      <h2 class="text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-4">
+        Moments of <span class="text-brand-600">Excellence</span>
+      </h2>
+      <p class="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        Explore our vibrant campus life through these glimpses of academic activities, sports events, and cultural programs.
+      </p>
+    </div>
+
+    <div class="flex flex-wrap justify-center gap-3 mb-10 scroll-reveal">
+      {categories.map((category, index) => (
+        <button
+          class={`filter-btn px-5 py-2.5 rounded-xl font-medium text-sm transition-all duration-300 ${
+            category === "All"
+              ? "bg-brand-600 text-white shadow-sm"
+              : "bg-white text-gray-600 hover:bg-brand-50 hover:text-brand-600 border border-gray-200"
+          }`}
+          data-category={category}
+        >
+          {category}
+        </button>
+      ))}
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {galleryItems.map((item, index) => (
+        <div class="group relative overflow-hidden rounded-xl aspect-[4/3] cursor-pointer gallery-item scroll-reveal" data-category={item.category}>
+          <img
+            src={item.image}
+            alt={item.title}
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          />
+
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-900/80 via-brand-700/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+          <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+            <div class="text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+              <p class="text-white font-bold text-lg">{item.title}</p>
+              <p class="text-brand-200 text-sm">{item.category}</p>
+            </div>
+          </div>
+
+          <div class="absolute top-4 left-4 bg-white/90 px-3 py-1 rounded-lg">
+            <span class="text-xs font-medium text-brand-600">{item.category}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="text-center mt-12 scroll-reveal">
+      <a
+        href="#contact"
+        class="group inline-flex items-center gap-2 px-8 py-4 bg-white text-brand-600 font-semibold rounded-xl border-2 border-brand-200 hover:bg-brand-50 hover:border-brand-500 transition-all duration-300 hover:-translate-y-1"
+      >
+        <span>Request Photo Gallery</span>
+        <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const galleryItems = document.querySelectorAll('.gallery-item');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const category = btn.getAttribute('data-category');
+
+      filterBtns.forEach(b => {
+        b.classList.remove('bg-brand-600', 'text-white', 'shadow-sm');
+        b.classList.add('bg-white', 'text-gray-600', 'border', 'border-gray-200');
+      });
+      btn.classList.remove('bg-white', 'text-gray-600', 'border', 'border-gray-200');
+      btn.classList.add('bg-brand-600', 'text-white', 'shadow-sm');
+
+      galleryItems.forEach(item => {
+        const itemCategory = item.getAttribute('data-category');
+        if (category === 'All' || itemCategory === category) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.scroll-reveal').forEach(el => {
+    el.classList.add('scroll-reveal-item');
+    observer.observe(el);
+  });
+</script>
