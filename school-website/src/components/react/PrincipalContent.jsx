@@ -61,7 +61,7 @@ export default function PrincipalContent() {
           animate={{ y: [0, -5, 0] }}
         >
           <div className="text-center">
-            <div className="text-lg sm:text-2xl font-bold text-brand-600">20+</div>
+            <div className="text-lg sm:text-2xl font-bold text-brand-600">15+</div>
             <div className="text-[10px] sm:text-xs font-medium text-gray-600">Years Excellence</div>
           </div>
         </motion.div>

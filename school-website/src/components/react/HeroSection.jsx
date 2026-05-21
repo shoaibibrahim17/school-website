@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import AnimatedCounter from './AnimatedCounter.jsx';
+import PlaceholderImage from './PlaceholderImage.jsx';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -20,10 +21,10 @@ const itemVariants = {
 };
 
 const stats = [
-  { value: 20, label: 'Years of Excellence', suffix: '+' },
-  { value: 1200, label: 'Happy Students', suffix: '+' },
-  { value: 45, label: 'Expert Teachers', suffix: '+' },
-  { value: 95, label: 'Pass Rate', suffix: '%' },
+  { value: 15, label: 'Years of Excellence', suffix: '+' },
+  { value: 850, label: 'Happy Students', suffix: '+' },
+  { value: 42, label: 'Expert Teachers', suffix: '+' },
+  { value: 98, label: 'Board Pass Rate', suffix: '%' },
 ];
 
 export default function HeroContent() {
@@ -48,7 +49,7 @@ export default function HeroContent() {
           <img
             src="/logo.svg"
             alt=""
-            className="w-[600px] sm:w-[800px] lg:w-[1000px] xl:w-[1200px] opacity-[0.06] sm:opacity-[0.07] lg:opacity-[0.08] blur-[2px] sm:blur-[3px] object-contain"
+            className="w-[400px] sm:w-[600px] lg:w-[900px] xl:w-[1100px] opacity-[0.06] sm:opacity-[0.07] lg:opacity-[0.08] blur-[1px] sm:blur-[2px] object-contain"
             aria-hidden="true"
           />
         </div>
@@ -113,7 +114,7 @@ export default function HeroContent() {
                 <svg className="w-5 h-5 mr-2 text-gray-400 group-hover:text-brand-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
                 </svg>
-                <span>Virtual Tour</span>
+                <span>Explore More</span>
               </motion.a>
             </motion.div>
 
@@ -137,18 +138,11 @@ export default function HeroContent() {
             >
               <div className="lg:hidden mb-8">
                 <div className="relative bg-white/70 backdrop-blur-md rounded-2xl p-1.5 shadow-xl border border-white/50">
-                  <div className="aspect-[16/9] rounded-xl overflow-hidden relative">
-                    <img
-                      src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&h=450&fit=crop"
-                      alt="Students in classroom"
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/15 to-transparent" />
-                    <div className="absolute bottom-3 left-3 right-3">
-                      <div className="bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2 shadow-sm">
-                        <p className="text-gray-800 font-semibold text-xs">Quality Education</p>
-                        <p className="text-gray-500 text-[10px]">Holistic Development</p>
-                      </div>
+                  <PlaceholderImage type="classroom" aspect="16/9" className="rounded-xl" />
+                  <div className="absolute bottom-3 left-3 right-3">
+                    <div className="bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2 shadow-sm">
+                      <p className="text-gray-800 font-semibold text-xs">Quality Education</p>
+                      <p className="text-gray-500 text-[10px]">Holistic Development</p>
                     </div>
                   </div>
                 </div>
@@ -173,14 +167,8 @@ export default function HeroContent() {
                 />
 
                 <div className="relative bg-white/60 backdrop-blur-md rounded-3xl p-2 shadow-2xl border border-white/40">
-                  <div className="aspect-[4/3] rounded-2xl overflow-hidden relative">
-                    <img
-                      src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&h=600&fit=crop"
-                      alt="Students in classroom"
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
-
+                  <div className="rounded-2xl overflow-hidden relative">
+                    <PlaceholderImage type="students" aspect="4/3" />
                     <motion.div
                       className="absolute bottom-5 left-5 right-5"
                       initial={{ opacity: 0, y: 20 }}
