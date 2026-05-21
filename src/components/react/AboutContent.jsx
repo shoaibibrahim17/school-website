@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import PlaceholderImage from './PlaceholderImage.jsx';
 
 const features = [
   {
@@ -25,9 +26,9 @@ const features = [
 ];
 
 const achievements = [
-  { number: '95%', label: 'Board Pass Rate' },
-  { number: '50+', label: 'Competitive Exams' },
-  { number: '100%', label: 'Sports Coverage' },
+  { number: '98%', label: 'Board Pass Rate' },
+  { number: '50+', label: 'Competitions Won' },
+  { number: '15+', label: 'Sports Activities' },
 ];
 
 const cardVariants = {
@@ -61,11 +62,7 @@ export default function AboutContent() {
               whileHover={{ scale: 1.03 }}
               transition={{ duration: 0.4 }}
             >
-              <img
-                src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=400&h=400&fit=crop"
-                alt="Students studying"
-                className="w-full h-full object-cover"
-              />
+              <PlaceholderImage type="students" aspect="1/1" className="w-full h-full" />
             </motion.div>
             <motion.div
               className="aspect-square rounded-2xl overflow-hidden"
@@ -73,11 +70,7 @@ export default function AboutContent() {
               whileHover={{ scale: 1.03 }}
               transition={{ duration: 0.4 }}
             >
-              <img
-                src="https://images.unsplash.com/photo-1544717305-2782549b5136?w=400&h=400&fit=crop"
-                alt="Science lab"
-                className="w-full h-full object-cover"
-              />
+              <PlaceholderImage type="lab" aspect="1/1" className="w-full h-full" />
             </motion.div>
           </div>
           <div className="space-y-3 sm:space-y-4 pt-4 sm:pt-8">
@@ -87,11 +80,7 @@ export default function AboutContent() {
               whileHover={{ scale: 1.03 }}
               transition={{ duration: 0.4 }}
             >
-              <img
-                src="https://images.unsplash.com/photo-1577896337318-499c150c47d4?w=400&h=400&fit=crop"
-                alt="Sports activities"
-                className="w-full h-full object-cover"
-              />
+              <PlaceholderImage type="sports" aspect="1/1" className="w-full h-full" />
             </motion.div>
             <motion.div
               className="aspect-square rounded-2xl overflow-hidden"
@@ -99,11 +88,7 @@ export default function AboutContent() {
               whileHover={{ scale: 1.03 }}
               transition={{ duration: 0.4 }}
             >
-              <img
-                src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=400&h=400&fit=crop"
-                alt="School assembly"
-                className="w-full h-full object-cover"
-              />
+              <PlaceholderImage type="assembly" aspect="1/1" className="w-full h-full" />
             </motion.div>
           </div>
         </div>
@@ -116,7 +101,7 @@ export default function AboutContent() {
           transition={{ delay: 0.6, duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
           whileHover={{ scale: 1.05 }}
         >
-          <div className="text-2xl sm:text-4xl font-bold">20+</div>
+          <div className="text-2xl sm:text-4xl font-bold">15+</div>
           <div className="text-xs sm:text-sm font-medium">Years of Excellence</div>
         </motion.div>
 

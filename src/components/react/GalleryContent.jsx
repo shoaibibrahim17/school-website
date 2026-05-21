@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import PlaceholderImage from './PlaceholderImage.jsx';
 
 const galleryItems = [
-  { title: 'Smart Classroom', category: 'Academic', image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&h=450&fit=crop' },
-  { title: 'Annual Sports Day', category: 'Sports', image: 'https://images.unsplash.com/photo-1461896836934-voices-of-color?w=600&h=450&fit=crop' },
-  { title: 'Art & Craft Exhibition', category: 'Creative', image: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&h=450&fit=crop' },
-  { title: 'Science Fair', category: 'Academic', image: 'https://images.unsplash.com/photo-1564325724739-bae0bd08762c?w=600&h=450&fit=crop' },
-  { title: 'Music & Dance', category: 'Creative', image: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=600&h=450&fit=crop' },
-  { title: 'Annual Day Celebration', category: 'Events', image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&h=450&fit=crop' },
+  { title: 'Smart Classroom', category: 'Academic', type: 'classroom' },
+  { title: 'Annual Sports Day', category: 'Sports', type: 'sports' },
+  { title: 'Art & Craft Exhibition', category: 'Creative', type: 'music' },
+  { title: 'Science Fair', category: 'Academic', type: 'science' },
+  { title: 'Music & Dance', category: 'Creative', type: 'music' },
+  { title: 'Annual Day Celebration', category: 'Events', type: 'event' },
 ];
 
 const categories = ['All', 'Academic', 'Sports', 'Creative', 'Events'];
@@ -56,10 +57,7 @@ export default function GalleryContent() {
         ))}
       </div>
 
-      <motion.div
-        className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
-        layout
-      >
+      <motion.div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" layout>
         <AnimatePresence mode="popLayout">
           {filteredItems.map((item) => (
             <motion.div
@@ -73,11 +71,7 @@ export default function GalleryContent() {
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
             >
-              <img
-                src={item.image}
-                alt={item.title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
+              <PlaceholderImage type={item.type} aspect="4/3" className="w-full h-full" />
 
               <div className="absolute inset-0 bg-gradient-to-t from-brand-900/80 via-brand-700/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
