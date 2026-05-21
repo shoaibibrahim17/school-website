@@ -31,15 +31,26 @@ const socialLinks = [
 ];
 ---
 
-<footer class="bg-gray-900 text-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+<footer class="bg-gray-900 text-white relative overflow-hidden">
+  <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
+    <img
+      src="/logo.svg"
+      alt=""
+      class="w-[500px] sm:w-[700px] lg:w-[900px] opacity-[0.03] object-contain"
+      aria-hidden="true"
+    />
+  </div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16 relative z-10">
     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
       <div class="lg:col-span-1">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="w-12 h-12 bg-brand-600 rounded-xl flex items-center justify-center shadow-md">
-            <img src="/logo.svg" alt="Logo" class="w-8 h-8 brightness-0 invert" />
+        <div class="flex items-center gap-4 mb-4">
+          <div class="w-16 h-16 bg-gradient-to-br from-brand-500 to-brand-700 rounded-2xl flex items-center justify-center shadow-lg shadow-brand-800/30 ring-2 ring-brand-400/20">
+            <img src="/logo.svg" alt="Logo" class="w-10 h-10 brightness-0 invert" />
           </div>
-          <span class="text-xl font-bold">Mother's Care</span>
+          <div>
+            <span class="text-xl font-bold block">Mother's Care</span>
+            <span class="text-brand-400 text-xs font-semibold tracking-wider uppercase">Est. 2011</span>
+          </div>
         </div>
         <p class="text-gray-400 mb-6 text-sm leading-relaxed">
           Premier SSC affiliated school in Adilabad, committed to providing quality education and nurturing future leaders since 2011.

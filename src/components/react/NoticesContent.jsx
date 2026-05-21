@@ -127,16 +127,19 @@ export default function NoticesContent() {
       </div>
 
       <motion.div
-        className="mt-12 bg-gradient-to-r from-brand-600 via-teal-600 to-brand-600 bg-[length:200%_100%] rounded-2xl p-8 lg:p-12 text-center"
+        className="mt-12 bg-gradient-to-r from-brand-600 via-teal-600 to-brand-600 bg-[length:200%_100%] rounded-2xl p-8 lg:p-12 text-center relative overflow-hidden"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
         animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
       >
-        <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4">Never Miss an Update</h3>
-        <p className="text-brand-100 mb-6 max-w-2xl mx-auto">Subscribe to our newsletter to receive important notices and updates directly in your inbox.</p>
-        <form className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+          <img src="/logo.svg" alt="" className="w-[200px] sm:w-[300px] lg:w-[400px] opacity-[0.08] brightness-0 invert object-contain" aria-hidden="true" />
+        </div>
+        <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4 relative z-10">Never Miss an Update</h3>
+        <p className="text-brand-100 mb-6 max-w-2xl mx-auto relative z-10">Subscribe to our newsletter to receive important notices and updates directly in your inbox.</p>
+        <form className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto relative z-10">
           <input
             type="email"
             placeholder="Enter your email"

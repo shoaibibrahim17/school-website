@@ -34,6 +34,7 @@ export default function HeroContent() {
     offset: ['start start', 'end start'],
   });
   const watermarkY = useTransform(scrollYProgress, [0, 1], [0, 80]);
+  const watermarkYReversed = useTransform(scrollYProgress, [0, 1], [0, 40]);
   const contentY = useTransform(scrollYProgress, [0, 1], [0, -40]);
   const imageY = useTransform(scrollYProgress, [0, 1], [0, -60]);
 
@@ -49,7 +50,21 @@ export default function HeroContent() {
           <img
             src="/logo.svg"
             alt=""
-            className="w-[400px] sm:w-[600px] lg:w-[900px] xl:w-[1100px] opacity-[0.06] sm:opacity-[0.07] lg:opacity-[0.08] blur-[1px] sm:blur-[2px] object-contain"
+            className="w-[700px] sm:w-[1000px] lg:w-[1300px] xl:w-[1500px] 2xl:w-[1800px] opacity-[0.035] sm:opacity-[0.04] lg:opacity-[0.045] object-contain"
+            aria-hidden="true"
+          />
+        </div>
+      </motion.div>
+
+      <motion.div
+        className="absolute inset-0 flex items-center justify-center z-[1] pointer-events-none select-none scale-150"
+        style={{ y: watermarkYReversed }}
+      >
+        <div className="relative w-full h-full flex items-center justify-center">
+          <img
+            src="/logo.svg"
+            alt=""
+            className="w-[900px] sm:w-[1300px] lg:w-[1700px] xl:w-[2000px] opacity-[0.015] blur-[1px] object-contain"
             aria-hidden="true"
           />
         </div>
@@ -58,8 +73,10 @@ export default function HeroContent() {
       <div className="absolute top-40 -right-20 w-96 h-96 bg-brand-200/20 rounded-full blur-3xl" />
       <div className="absolute -bottom-20 -left-20 w-[500px] h-[500px] bg-teal-200/20 rounded-full blur-3xl" />
       <div className="absolute top-1/3 left-1/3 w-64 h-64 bg-brand-100/20 rounded-full blur-3xl" />
+      <div className="absolute top-1/4 right-1/4 w-80 h-80 bg-brand-300/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/3 left-1/2 w-72 h-72 bg-teal-300/10 rounded-full blur-3xl" />
 
-      <div className="absolute inset-0 opacity-[0.012] z-[1]" style={{ backgroundImage: 'linear-gradient(#4f46e5 1px, transparent 1px), linear-gradient(90deg, #4f46e5 1px, transparent 1px)', backgroundSize: '50px 50px' }} />
+      <div className="absolute inset-0 opacity-[0.012] z-[1]" style={{ backgroundImage: 'linear-gradient(#4f46e5 1px, transparent 1px), linear-gradient(90deg, #4f46e5 1px, transparent 1px)', backgroundSize: '80px 80px' }} />
 
       <motion.div
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-24 relative z-10 w-full"
