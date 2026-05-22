@@ -47,20 +47,31 @@ const notices = [
 ];
 
 const categoryColors = {
-  Admissions: 'bg-brand-600',
+  Admissions: 'bg-red-600',
+  Urgent: 'bg-red-600',
   Holidays: 'bg-teal-600',
-  Events: 'bg-brand-500',
-  Academic: 'bg-brand-700',
+  Events: 'bg-green-600',
+  Academic: 'bg-blue-600',
   Achievement: 'bg-teal-500',
-  Transport: 'bg-brand-400',
+  Transport: 'bg-orange-500',
+};
+
+const categoryBorders = {
+  Admissions: 'border-l-red-500',
+  Urgent: 'border-l-red-500',
+  Events: 'border-l-green-500',
+  Academic: 'border-l-blue-500',
+  Transport: 'border-l-orange-500',
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 36, scale: 0.98, filter: 'blur(8px)' },
   visible: (i) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.08, duration: 0.5, ease: [0.25, 0.1, 0.25, 1] },
+    scale: 1,
+    filter: 'blur(0px)',
+    transition: { delay: i * 0.1, duration: 1.05, ease: [0.16, 1, 0.3, 1] },
   }),
 };
 
@@ -71,13 +82,13 @@ export default function NoticesContent() {
         {notices.map((notice, index) => (
           <motion.article
             key={notice.title}
-            className="group relative p-5 bg-white rounded-xl border border-gray-100 hover:border-brand-200 transition-colors duration-500"
+            className={`scroll-reveal-item group relative p-5 bg-white rounded-xl border border-l-4 border-gray-100 ${categoryBorders[notice.category] || 'border-l-gray-300'} transition-colors duration-500`}
             variants={cardVariants}
             initial="hidden"
             whileInView="visible"
             custom={index}
-            viewport={{ once: true, margin: '-50px' }}
-            whileHover={{ y: -2, boxShadow: '0 16px 32px rgba(79, 70, 229, 0.08)' }}
+            viewport={{ once: false, margin: '-50px' }}
+            whileHover={{ y: -5, scale: 1.006, boxShadow: '0 24px 54px rgba(15, 23, 42, 0.12)' }}
           >
             <div className="flex items-center justify-between mb-3">
               <span className={`px-2.5 py-1 rounded-lg text-[11px] font-bold text-white ${categoryColors[notice.category] || 'bg-gray-500'}`}>
@@ -87,7 +98,7 @@ export default function NoticesContent() {
                 <motion.span
                   className="flex items-center gap-1 px-2 py-1 bg-red-50 text-red-600 rounded-lg text-[11px] font-semibold"
                   animate={{ scale: [1, 1.05, 1] }}
-                  transition={{ duration: 2, repeat: Infinity }}
+                  transition={{ duration: 3.2, repeat: Infinity, ease: 'easeInOut' }}
                 >
                   <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
@@ -118,12 +129,12 @@ export default function NoticesContent() {
         className="mt-12 bg-gradient-to-r from-brand-600 via-teal-600 to-brand-600 bg-[length:200%_100%] rounded-2xl p-8 lg:p-12 text-center relative overflow-hidden"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
+        viewport={{ once: false }}
+        transition={{ duration: 1.055 }}
         animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
       >
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
-          <img src="./logo.svg" alt="" className="w-[200px] sm:w-[300px] lg:w-[400px] opacity-20 brightness-0 invert object-contain" aria-hidden="true" />
+          <img src="/logo.svg" alt="" className="w-[200px] sm:w-[300px] lg:w-[400px] opacity-20 brightness-0 invert object-contain" aria-hidden="true" />
         </div>
         <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4 relative z-10">Never Miss an Update</h3>
         <p className="text-brand-100 mb-6 max-w-2xl mx-auto relative z-10">Subscribe to our newsletter to receive important notices and updates directly in your inbox.</p>
@@ -146,3 +157,4 @@ export default function NoticesContent() {
     </>
   );
 }
+

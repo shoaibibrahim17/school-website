@@ -29,82 +29,84 @@ const facilities = [
     icon: 'ToyBrick',
     title: 'Playway Method for Pre-Primary',
     description: 'Research-based playful learning approach with blocks, shapes, and interactive activities that make early education joyful and effective.',
-    color: 'from-brand-500 to-brand-600',
-    gradient: 'from-brand-50 to-brand-100/50',
+    color: 'from-indigo-500 to-blue-600',
+    gradient: 'from-indigo-50 to-blue-100/50',
     size: 'large',
   },
   {
     icon: 'Sparkles',
     title: 'Activity-Based Learning',
     description: 'Hand-on activities, group projects, and experiential learning that develop critical thinking and creativity in every student.',
-    color: 'from-teal-500 to-teal-600',
-    gradient: 'from-teal-50 to-teal-100/50',
+    color: 'from-emerald-500 to-teal-600',
+    gradient: 'from-emerald-50 to-teal-100/50',
     size: 'small',
   },
   {
     icon: 'Monitor',
     title: 'Modern Computer Lab',
     description: '50+ workstations with high-speed internet, coding software, and guided digital literacy programs.',
-    color: 'from-brand-500 to-brand-600',
-    gradient: 'from-brand-50 to-brand-100/50',
+    color: 'from-sky-500 to-indigo-600',
+    gradient: 'from-sky-50 to-indigo-100/50',
     size: 'small',
   },
   {
     icon: 'Presentation',
     title: 'Digital Classrooms',
     description: 'Interactive smart boards, projectors, and audio-visual tools that make every lesson engaging and immersive.',
-    color: 'from-teal-500 to-teal-600',
-    gradient: 'from-teal-50 to-teal-100/50',
+    color: 'from-violet-500 to-indigo-600',
+    gradient: 'from-violet-50 to-indigo-100/50',
     size: 'small',
   },
   {
     icon: 'GraduationCap',
     title: 'Well-Trained & Qualified Staff',
     description: 'Experienced, caring educators who nurture every child with personalized attention and modern teaching methods.',
-    color: 'from-brand-500 to-brand-600',
-    gradient: 'from-brand-50 to-brand-100/50',
+    color: 'from-amber-500 to-orange-500',
+    gradient: 'from-amber-50 to-orange-100/50',
     size: 'medium',
   },
   {
     icon: 'Mic',
     title: 'Assembly Activity Sessions',
     description: 'Daily assembly with public speaking, leadership activities, moral education, and talent showcase opportunities.',
-    color: 'from-teal-500 to-teal-600',
-    gradient: 'from-teal-50 to-teal-100/50',
+    color: 'from-rose-500 to-pink-600',
+    gradient: 'from-rose-50 to-pink-100/50',
     size: 'medium',
   },
   {
     icon: 'ShieldCheck',
     title: 'Safe & Secure Environment',
     description: 'Child-safe campus with strict visitor protocols, secure entry, and a nurturing atmosphere where children thrive.',
-    color: 'from-brand-400 to-brand-500',
-    gradient: 'from-brand-50 to-brand-100/50',
+    color: 'from-green-500 to-emerald-600',
+    gradient: 'from-green-50 to-emerald-100/50',
     size: 'small',
   },
   {
     icon: 'Camera',
     title: 'CCTV Surveillance',
     description: '24/7 CCTV monitoring across all areas with dedicated safety staff and emergency response protocols.',
-    color: 'from-teal-500 to-teal-600',
-    gradient: 'from-teal-50 to-teal-100/50',
+    color: 'from-cyan-500 to-sky-600',
+    gradient: 'from-cyan-50 to-sky-100/50',
     size: 'small',
   },
   {
     icon: 'Trophy',
     title: 'Spacious Playground',
     description: 'Large outdoor playground with sports facilities for cricket, football, athletics, and free play in a safe green environment.',
-    color: 'from-brand-500 to-brand-600',
-    gradient: 'from-brand-50 to-brand-100/50',
+    color: 'from-orange-500 to-red-500',
+    gradient: 'from-orange-50 to-red-100/50',
     size: 'medium',
   },
 ];
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 0, y: 40, scale: 0.975, filter: 'blur(10px)' },
   visible: (i) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.07, duration: 0.5, ease: [0.25, 0.1, 0.25, 1] },
+    scale: 1,
+    filter: 'blur(0px)',
+    transition: { delay: i * 0.09, duration: 1.08, ease: [0.16, 1, 0.3, 1] },
   }),
 };
 
@@ -124,22 +126,22 @@ export default function FacilitiesContent() {
           return (
             <motion.div
               key={facility.title}
-              className={`group relative p-6 lg:p-8 bg-white rounded-2xl border border-gray-100 transition-all duration-500 overflow-hidden ${spanClass}`}
+              className={`scroll-reveal-item hover-lift group relative p-6 lg:p-8 bg-gradient-to-br ${facility.gradient} rounded-2xl border border-white/80 transition-all duration-500 overflow-hidden ${spanClass}`}
               variants={cardVariants}
               initial="hidden"
               whileInView="visible"
               custom={index}
-              viewport={{ once: true, margin: '-50px' }}
-              whileHover={{ y: -5, scale: 1.01, boxShadow: '0 24px 48px rgba(79, 70, 229, 0.12)' }}
+              viewport={{ once: false, margin: '-50px' }}
+              whileHover={{ y: -6, scale: 1.006, boxShadow: '0 26px 60px rgba(15, 23, 42, 0.14)' }}
             >
               <div className={`absolute inset-0 bg-gradient-to-br ${facility.color} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-500`} />
               <div className="absolute -top-8 -right-8 w-24 h-24 bg-gradient-to-br ${facility.color} opacity-0 group-hover:opacity-[0.04] rounded-full blur-2xl transition-opacity duration-700" />
               <div className="relative h-full flex flex-col">
                 <div className="flex items-start gap-4 mb-4">
                   <motion.div
-                    className={`flex-shrink-0 w-12 h-12 ${facility.size === 'large' ? 'lg:w-14 lg:h-14' : ''} bg-gradient-to-br ${facility.color} rounded-xl flex items-center justify-center shadow-md shadow-${facility.color.split(' ')[0].replace('from-', '')}/20 group-hover:shadow-lg transition-all duration-300`}
-                    whileHover={{ scale: 1.1, rotate: -3 }}
-                    transition={{ duration: 0.3 }}
+                    className={`flex-shrink-0 w-12 h-12 ${facility.size === 'large' ? 'lg:w-14 lg:h-14' : ''} bg-gradient-to-br ${facility.color} rounded-xl flex items-center justify-center shadow-md group-hover:shadow-lg transition-all duration-300`}
+                    whileHover={{ scale: 1.08, rotate: -2 }}
+                    transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
                   >
                     <LucideIcon className={`text-white ${facility.size === 'large' ? 'w-6 h-6 lg:w-7 lg:h-7' : 'w-5 h-5'}`} strokeWidth={1.5} />
                   </motion.div>
@@ -166,3 +168,4 @@ export default function FacilitiesContent() {
     </>
   );
 }
+

@@ -35,18 +35,17 @@ export default function PlaceholderImage({ type = 'classroom', aspect = '4/3', c
           className="flex flex-col items-center gap-2"
           initial={{ opacity: 0.6 }}
           animate={{ opacity: [0.6, 0.9, 0.6] }}
-          transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+          transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
         >
           <motion.div
             className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white/60 backdrop-blur-sm flex items-center justify-center shadow-sm"
-            animate={{ y: [0, -4, 0] }}
-            transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+            animate={{ y: [0, -6, 0], scale: [1, 1.02, 1] }}
+            transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
           >
             <svg className="w-8 h-8 sm:w-10 sm:h-10 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d={iconPath} />
             </svg>
           </motion.div>
-          <span className="text-xs sm:text-sm font-medium text-brand-300/80">Image coming soon</span>
         </motion.div>
       </div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.4)_0%,transparent_60%)]" />
@@ -54,3 +53,4 @@ export default function PlaceholderImage({ type = 'classroom', aspect = '4/3', c
     </div>
   );
 }
+

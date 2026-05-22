@@ -32,21 +32,24 @@ const achievements = [
 ];
 
 const cardVariants = {
-  hidden: { opacity: 0, x: -20, scale: 0.98 },
+  hidden: { opacity: 0, x: -28, scale: 0.97, filter: 'blur(8px)' },
   visible: (i) => ({
     opacity: 1,
     x: 0,
     scale: 1,
-    transition: { delay: i * 0.1, duration: 0.5, ease: [0.25, 0.1, 0.25, 1] },
+    filter: 'blur(0px)',
+    transition: { delay: i * 0.12, duration: 1.05, ease: [0.16, 1, 0.3, 1] },
   }),
 };
 
 const imageVariants = {
-  hidden: { opacity: 0, scale: 0.95 },
+  hidden: { opacity: 0, scale: 0.94, y: 28, filter: 'blur(10px)' },
   visible: (i) => ({
     opacity: 1,
     scale: 1,
-    transition: { delay: i * 0.15, duration: 0.6, ease: [0.25, 0.1, 0.25, 1] },
+    y: 0,
+    filter: 'blur(0px)',
+    transition: { delay: i * 0.16, duration: 1.15, ease: [0.16, 1, 0.3, 1] },
   }),
 };
 
@@ -57,36 +60,36 @@ export default function AboutContent() {
         <div className="grid grid-cols-2 gap-3 sm:gap-4">
           <div className="space-y-3 sm:space-y-4">
             <motion.div
-              className="aspect-square rounded-2xl overflow-hidden"
-              variants={imageVariants} initial="hidden" whileInView="visible" custom={0} viewport={{ once: true }}
+              className="scroll-reveal-item aspect-square rounded-2xl overflow-hidden"
+              variants={imageVariants} initial="hidden" whileInView="visible" custom={0} viewport={{ once: false }}
               whileHover={{ scale: 1.03 }}
-              transition={{ duration: 0.4 }}
+              transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
             >
               <PlaceholderImage type="students" aspect="1/1" className="w-full h-full" />
             </motion.div>
             <motion.div
-              className="aspect-square rounded-2xl overflow-hidden"
-              variants={imageVariants} initial="hidden" whileInView="visible" custom={1} viewport={{ once: true }}
+              className="scroll-reveal-item aspect-square rounded-2xl overflow-hidden"
+              variants={imageVariants} initial="hidden" whileInView="visible" custom={1} viewport={{ once: false }}
               whileHover={{ scale: 1.03 }}
-              transition={{ duration: 0.4 }}
+              transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
             >
               <PlaceholderImage type="lab" aspect="1/1" className="w-full h-full" />
             </motion.div>
           </div>
           <div className="space-y-3 sm:space-y-4 pt-4 sm:pt-8">
             <motion.div
-              className="aspect-square rounded-2xl overflow-hidden"
-              variants={imageVariants} initial="hidden" whileInView="visible" custom={2} viewport={{ once: true }}
+              className="scroll-reveal-item aspect-square rounded-2xl overflow-hidden"
+              variants={imageVariants} initial="hidden" whileInView="visible" custom={2} viewport={{ once: false }}
               whileHover={{ scale: 1.03 }}
-              transition={{ duration: 0.4 }}
+              transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
             >
               <PlaceholderImage type="sports" aspect="1/1" className="w-full h-full" />
             </motion.div>
             <motion.div
-              className="aspect-square rounded-2xl overflow-hidden"
-              variants={imageVariants} initial="hidden" whileInView="visible" custom={3} viewport={{ once: true }}
+              className="scroll-reveal-item aspect-square rounded-2xl overflow-hidden"
+              variants={imageVariants} initial="hidden" whileInView="visible" custom={3} viewport={{ once: false }}
               whileHover={{ scale: 1.03 }}
-              transition={{ duration: 0.4 }}
+              transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
             >
               <PlaceholderImage type="assembly" aspect="1/1" className="w-full h-full" />
             </motion.div>
@@ -97,8 +100,8 @@ export default function AboutContent() {
           className="absolute -bottom-3 right-0 sm:-right-4 bg-brand-600 text-white rounded-2xl p-3 sm:p-6 shadow-lg"
           initial={{ opacity: 0, scale: 0.5, x: 20 }}
           whileInView={{ opacity: 1, scale: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.6, duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+          viewport={{ once: false }}
+          transition={{ delay: 0.6, duration: 0.955, ease: [0.16, 1, 0.3, 1] }}
           whileHover={{ scale: 1.05 }}
         >
           <div className="text-xl sm:text-4xl font-bold">15+</div>
@@ -109,8 +112,8 @@ export default function AboutContent() {
           className="absolute -top-3 left-0 sm:-left-4 bg-white rounded-2xl p-2 sm:p-4 shadow-md border border-gray-100"
           initial={{ opacity: 0, scale: 0.5, x: -20 }}
           whileInView={{ opacity: 1, scale: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.8, duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+          viewport={{ once: false }}
+          transition={{ delay: 0.8, duration: 0.955, ease: [0.16, 1, 0.3, 1] }}
         >
           <div className="flex gap-2 sm:gap-4">
             {achievements.map((ach) => (
@@ -128,12 +131,12 @@ export default function AboutContent() {
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}
-              className="group flex gap-3 sm:gap-4 p-4 sm:p-5 bg-white rounded-xl border border-gray-100 hover:border-brand-200 hover:shadow-md hover:shadow-brand-100/50 transition-all duration-300"
+              className="scroll-reveal-item group flex gap-3 sm:gap-4 p-4 sm:p-5 bg-white rounded-xl border border-gray-100 hover:border-brand-200 hover:shadow-md hover:shadow-brand-100/50 transition-all duration-300"
               variants={cardVariants}
               initial="hidden"
               whileInView="visible"
               custom={index}
-              viewport={{ once: true, margin: '-50px' }}
+              viewport={{ once: false, margin: '-50px' }}
               whileHover={{ y: -2, scale: 1.01 }}
             >
               <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-brand-500 to-teal-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
@@ -154,7 +157,7 @@ export default function AboutContent() {
           className="group inline-flex items-center gap-2 text-brand-600 font-semibold hover:text-brand-700 transition-colors mt-4"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ delay: 0.6 }}
         >
           <span>Schedule a campus visit</span>
@@ -166,3 +169,4 @@ export default function AboutContent() {
     </div>
   );
 }
+

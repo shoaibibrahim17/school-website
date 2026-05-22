@@ -14,18 +14,20 @@ const galleryItems = [
 const categories = ['All', 'Academic', 'Sports', 'Creative', 'Events'];
 
 const itemVariants = {
-  hidden: { opacity: 0, scale: 0.9, y: 20 },
+  hidden: { opacity: 0, scale: 0.94, y: 34, filter: 'blur(10px)' },
   visible: {
     opacity: 1,
     scale: 1,
     y: 0,
-    transition: { duration: 0.4, ease: [0.25, 0.1, 0.25, 1] },
+    filter: 'blur(0px)',
+    transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] },
   },
   exit: {
     opacity: 0,
-    scale: 0.9,
-    y: -20,
-    transition: { duration: 0.3 },
+    scale: 0.96,
+    y: -24,
+    filter: 'blur(8px)',
+    transition: { duration: 0.55, ease: [0.4, 0, 1, 1] },
   },
 };
 
@@ -49,7 +51,7 @@ export default function GalleryContent() {
                 : 'bg-white text-gray-600 hover:bg-brand-50 hover:text-brand-600 border border-gray-200'
             }`}
             onClick={() => setActiveCategory(category)}
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.04, y: -2 }}
             whileTap={{ scale: 0.95 }}
           >
             {category}
@@ -62,14 +64,14 @@ export default function GalleryContent() {
           {filteredItems.map((item) => (
             <motion.div
               key={item.title}
-              className="group relative overflow-hidden rounded-xl aspect-[4/3] cursor-pointer"
+              className="scroll-reveal-item group relative overflow-hidden rounded-xl aspect-[4/3] cursor-pointer"
               variants={itemVariants}
               initial="hidden"
               animate="visible"
               exit="exit"
               layout
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.3 }}
+              whileHover={{ scale: 1.025, y: -4 }}
+              transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
             >
               <PlaceholderImage type={item.type} aspect="4/3" className="w-full h-full" />
               <div className="absolute inset-0 bg-gradient-to-t from-brand-900/80 via-brand-700/30 to-transparent opacity-100 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -93,3 +95,4 @@ export default function GalleryContent() {
     </>
   );
 }
+

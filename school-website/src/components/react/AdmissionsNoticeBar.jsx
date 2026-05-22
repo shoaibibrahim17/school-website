@@ -18,7 +18,7 @@ export default function AdmissionsNoticeBar() {
             <motion.span
               className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-400 rounded-full shadow-sm shadow-green-400/50"
               animate={{ scale: [1, 1.6, 1], opacity: [0.7, 1, 0.7] }}
-              transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
+              transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
             />
             <span className="text-[10px] sm:text-xs text-white/60 font-bold uppercase tracking-[0.15em] hidden sm:inline">Live</span>
           </div>
@@ -29,7 +29,7 @@ export default function AdmissionsNoticeBar() {
             <motion.div
               className="flex whitespace-nowrap"
               animate={{ x: ['0%', '-50%'] }}
-              transition={{ duration: 12, repeat: Infinity, ease: 'linear' }}
+              transition={{ duration: 22, repeat: Infinity, ease: 'linear' }}
             >
               {[1, 2].map((set) => (
                 <div key={set} className="flex items-center gap-3 sm:gap-5 flex-shrink-0 px-2">
@@ -65,7 +65,7 @@ export default function AdmissionsNoticeBar() {
               backgroundSize: '200% 100%',
             }}
             animate={{ backgroundPosition: ['200% 0', '-200% 0'] }}
-            transition={{ duration: 6, repeat: Infinity, ease: 'linear' }}
+            transition={{ duration: 12, repeat: Infinity, ease: 'linear' }}
           />
 
           <div className="absolute inset-0 bg-gradient-to-r from-brand-600/0 via-brand-700/20 to-teal-600/0 pointer-events-none" />
@@ -75,9 +75,10 @@ export default function AdmissionsNoticeBar() {
         <motion.div
           className="absolute bottom-0 left-1/4 right-1/4 h-[1px] bg-white/40 blur-[1px]"
           animate={{ opacity: [0.3, 0.8, 0.3] }}
-          transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+          transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
         />
       </div>
     </div>
   );
 }
+

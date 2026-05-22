@@ -18,7 +18,7 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <link rel="icon" type="image/svg+xml" href="./logo.svg" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <meta name="keywords" content="school, education, admissions, SSC, academic excellence, Adilabad" />
@@ -41,5 +41,42 @@ const {
     <LenisScroll client:load>
       <slot />
     </LenisScroll>
+    <script is:inline>
+      const initScrollReveal = () => {
+        const revealItems = document.querySelectorAll('.scroll-reveal-item:not([data-scroll-reveal-ready])');
+
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          revealItems.forEach((item) => item.classList.add('visible'));
+          return;
+        }
+
+        if (!('IntersectionObserver' in window)) {
+          revealItems.forEach((item) => item.classList.add('visible'));
+          return;
+        }
+
+        const observer = window.__scrollRevealObserver || new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            } else {
+              entry.target.classList.remove('visible');
+            }
+          });
+        }, { threshold: 0.08, rootMargin: '0px 0px -10% 0px' });
+
+        window.__scrollRevealObserver = observer;
+        revealItems.forEach((item) => {
+          item.dataset.scrollRevealReady = 'true';
+          observer.observe(item);
+        });
+      };
+
+      initScrollReveal();
+      document.addEventListener('astro:page-load', initScrollReveal);
+
+      const mutationObserver = new MutationObserver(initScrollReveal);
+      mutationObserver.observe(document.documentElement, { childList: true, subtree: true });
+    </script>
   </body>
 </html>
