@@ -13,7 +13,7 @@ export default function WatermarkLogo({ className = '', opacity = 'opacity-10', 
     <div ref={ref} className={`absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden ${className}`}>
       <motion.div style={{ y }} className="flex items-center justify-center">
         <img
-          src="/logo.svg"
+          src={(import.meta.env.BASE_URL + '/logo.svg').replace('//', '/')}
           alt=""
           className={`${size} ${opacity} ${blur} object-contain`}
           aria-hidden="true"

@@ -51,7 +51,7 @@ export default function HeroContent() {
       >
         <div className="relative flex items-center justify-center">
           <img
-            src="/logo.svg"
+            src={(import.meta.env.BASE_URL + '/logo.svg').replace('//', '/')}
             alt=""
             className="w-[520px] xl:w-[680px] 2xl:w-[760px] opacity-[0.035] object-contain"
             aria-hidden="true"
