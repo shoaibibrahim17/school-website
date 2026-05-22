@@ -177,7 +177,7 @@ export default function NoticesContent() {
         animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
       >
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
-          <img src={import.meta.env.BASE_URL + 'logo.svg'} alt="" className="w-[200px] sm:w-[300px] lg:w-[400px] opacity-[0.08] brightness-0 invert object-contain" aria-hidden="true" />
+          <img src={import.meta.env.BASE_URL + '/logo.svg'} alt="" className="w-[200px] sm:w-[300px] lg:w-[400px] opacity-[0.08] brightness-0 invert object-contain" aria-hidden="true" />
         </div>
         <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4 relative z-10">Never Miss an Update</h3>
         <p className="text-brand-100 mb-6 max-w-2xl mx-auto relative z-10">Subscribe to our newsletter to receive important notices and updates directly in your inbox.</p>
