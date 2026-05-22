@@ -12,12 +12,17 @@ jobs:
       pages: write
       id-token: write
 
+    defaults:
+      run:
+        working-directory: school-website
+
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22.12.0
           cache: npm
+          cache-dependency-path: school-website/package-lock.json
 
       - run: npm ci
       - run: npm run build
@@ -28,7 +33,7 @@ jobs:
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: school-website/dist
 
       - id: deployment
         uses: actions/deploy-pages@v4
