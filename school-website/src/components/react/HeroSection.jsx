@@ -51,31 +51,31 @@ export default function HeroContent() {
           <img
             src={import.meta.env.BASE_URL + '/logo.svg'}
             alt=""
-            className="w-[700px] sm:w-[1000px] lg:w-[1300px] xl:w-[1500px] 2xl:w-[1800px] opacity-[0.035] sm:opacity-[0.04] lg:opacity-[0.045] object-contain"
+            className="w-[260px] sm:w-[500px] lg:w-[1000px] xl:w-[1500px] 2xl:w-[1800px] opacity-[0.03] sm:opacity-[0.035] lg:opacity-[0.045] object-contain"
             aria-hidden="true"
           />
         </div>
       </motion.div>
 
       <motion.div
-        className="absolute inset-0 flex items-center justify-center z-[1] pointer-events-none select-none scale-150"
+        className="absolute inset-0 flex items-center justify-center z-[1] pointer-events-none select-none lg:scale-150"
         style={{ y: watermarkYReversed }}
       >
         <div className="relative w-full h-full flex items-center justify-center">
           <img
             src={import.meta.env.BASE_URL + '/logo.svg'}
             alt=""
-            className="w-[900px] sm:w-[1300px] lg:w-[1700px] xl:w-[2000px] opacity-[0.015] blur-[1px] object-contain"
+            className="w-[300px] sm:w-[600px] lg:w-[1300px] xl:w-[2000px] opacity-[0.015] blur-[1px] object-contain"
             aria-hidden="true"
           />
         </div>
       </motion.div>
 
-      <div className="absolute top-40 -right-20 w-96 h-96 bg-brand-200/20 rounded-full blur-3xl" />
-      <div className="absolute -bottom-20 -left-20 w-[500px] h-[500px] bg-teal-200/20 rounded-full blur-3xl" />
-      <div className="absolute top-1/3 left-1/3 w-64 h-64 bg-brand-100/20 rounded-full blur-3xl" />
-      <div className="absolute top-1/4 right-1/4 w-80 h-80 bg-brand-300/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/3 left-1/2 w-72 h-72 bg-teal-300/10 rounded-full blur-3xl" />
+      <div className="absolute top-40 -right-20 w-40 sm:w-64 lg:w-96 h-40 sm:h-64 lg:h-96 bg-brand-200/20 rounded-full blur-3xl" />
+      <div className="absolute -bottom-20 -left-20 w-48 sm:w-80 lg:w-[500px] h-48 sm:h-80 lg:h-[500px] bg-teal-200/20 rounded-full blur-3xl" />
+      <div className="absolute top-1/3 left-1/3 w-24 sm:w-40 lg:w-64 h-24 sm:h-40 lg:h-64 bg-brand-100/20 rounded-full blur-3xl" />
+      <div className="absolute top-1/4 right-1/4 w-28 sm:w-48 lg:w-80 h-28 sm:h-48 lg:h-80 bg-brand-300/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/3 left-1/2 w-24 sm:w-44 lg:w-72 h-24 sm:h-44 lg:h-72 bg-teal-300/10 rounded-full blur-3xl" />
 
       <div className="absolute inset-0 opacity-[0.012] z-[1]" style={{ backgroundImage: 'linear-gradient(#4f46e5 1px, transparent 1px), linear-gradient(90deg, #4f46e5 1px, transparent 1px)', backgroundSize: '80px 80px' }} />
 
