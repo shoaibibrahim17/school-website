@@ -40,7 +40,7 @@ export default function HeroContent() {
   const imageY = useTransform(scrollYProgress, [0, 1], [0, -60]);
 
   return (
-    <div ref={sectionRef} className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-white">
+    <div ref={sectionRef} className="relative min-h-[85vh] lg:min-h-screen flex items-center pt-16 lg:pt-20 overflow-hidden bg-white">
       <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-brand-50 z-0" />
 
       <motion.div
@@ -51,7 +51,7 @@ export default function HeroContent() {
           <img
             src={(import.meta.env.BASE_URL + '/logo.svg').replace('//', '/')}
             alt=""
-            className="w-[180px] sm:w-[400px] lg:w-[800px] xl:w-[1300px] 2xl:w-[1800px] opacity-[0.025] sm:opacity-[0.035] lg:opacity-[0.045] object-contain"
+            className="w-[120px] sm:w-[250px] lg:w-[800px] xl:w-[1300px] 2xl:w-[1800px] opacity-[0.025] sm:opacity-[0.035] lg:opacity-[0.045] object-contain"
             aria-hidden="true"
           />
         </div>
@@ -80,13 +80,13 @@ export default function HeroContent() {
       <div className="absolute inset-0 opacity-[0.012] z-[1]" style={{ backgroundImage: 'linear-gradient(#4f46e5 1px, transparent 1px), linear-gradient(90deg, #4f46e5 1px, transparent 1px)', backgroundSize: '80px 80px' }} />
 
       <motion.div
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-24 relative z-10 w-full"
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-24 relative z-10 w-full"
         style={{ y: contentY }}
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-12 gap-6 lg:gap-16 items-center">
           <div className="lg:col-span-6 text-center lg:text-left">
             <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full mb-6 shadow-sm border border-brand-100">
               <motion.span
@@ -141,7 +141,7 @@ export default function HeroContent() {
               </motion.a>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 mt-12 pt-8 border-t border-gray-100">
+            <motion.div variants={itemVariants} className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-6 mt-8 lg:mt-12 pt-6 lg:pt-8 border-t border-gray-100">
               {stats.map((stat) => (
                 <AnimatedCounter
                   key={stat.label}
@@ -164,8 +164,8 @@ export default function HeroContent() {
                   <PlaceholderImage type="classroom" aspect="16/9" className="rounded-xl" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent rounded-xl" />
                 </div>
-                <div className="absolute -bottom-4 left-2 right-2 z-10">
-                  <div className="max-w-xs mx-auto">
+                <div className="relative -mt-8 left-0 right-0 z-10 px-2 sm:px-4">
+                  <div className="max-w-[280px] sm:max-w-xs mx-auto">
                     <HeroAdmissionsCard />
                   </div>
                 </div>

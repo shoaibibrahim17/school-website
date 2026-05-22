@@ -38,7 +38,7 @@ const infoVariants = {
 
 export default function ContactContent() {
   return (
-    <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+    <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
       <div className="space-y-5">
         {contactInfo.map((info, index) => (
           <motion.div

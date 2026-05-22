@@ -22,7 +22,7 @@ const paraVariants = {
 
 export default function PrincipalContent() {
   return (
-    <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
       <div className="relative px-0 sm:px-4">
         <motion.div
           className="relative bg-white rounded-3xl p-1 border border-gray-100 shadow-xl"

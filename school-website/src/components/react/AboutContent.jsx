@@ -52,7 +52,7 @@ const imageVariants = {
 
 export default function AboutContent() {
   return (
-    <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
       <div className="relative px-0">
         <div className="grid grid-cols-2 gap-3 sm:gap-4">
           <div className="space-y-3 sm:space-y-4">
