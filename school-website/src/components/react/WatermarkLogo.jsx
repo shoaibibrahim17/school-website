@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
-export default function WatermarkLogo({ className = '', opacity = 'opacity-[0.05]', blur = 'blur-[2px]', size = 'w-[140px] sm:w-[300px] lg:w-[500px] 2xl:w-[800px]' }) {
+export default function WatermarkLogo({ className = '', opacity = 'opacity-10', blur = '', size = 'w-[140px] sm:w-[300px] lg:w-[500px] 2xl:w-[800px]' }) {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,

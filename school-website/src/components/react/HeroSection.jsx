@@ -51,7 +51,7 @@ export default function HeroContent() {
           <img
             src="./logo.svg"
             alt=""
-            className="w-[120px] sm:w-[250px] lg:w-[800px] xl:w-[1300px] 2xl:w-[1800px] opacity-[0.025] sm:opacity-[0.035] lg:opacity-[0.045] object-contain"
+            className="w-[120px] sm:w-[250px] lg:w-[800px] xl:w-[1300px] 2xl:w-[1800px] opacity-15 sm:opacity-20 lg:opacity-25 object-contain"
             aria-hidden="true"
           />
         </div>
@@ -65,7 +65,7 @@ export default function HeroContent() {
           <img
             src="./logo.svg"
             alt=""
-            className="w-[600px] lg:w-[1300px] xl:w-[2000px] opacity-[0.015] blur-[1px] object-contain"
+            className="w-[600px] lg:w-[1300px] xl:w-[2000px] opacity-10 object-contain"
             aria-hidden="true"
           />
         </div>

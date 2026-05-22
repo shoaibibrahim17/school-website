@@ -63,7 +63,7 @@ export default function ContactContent() {
                   {info.content}
                 </a>
               ) : (
-                <p className="text-white/70">{info.content}</p>
+                <p className="text-white/70 break-all">{info.content}</p>
               )}
             </div>
           </motion.div>
@@ -96,7 +96,7 @@ export default function ContactContent() {
         </motion.div>
 
         <motion.div
-          className="mt-8 rounded-xl overflow-hidden h-48 bg-white/10 backdrop-blur-sm relative group"
+          className="mt-4 sm:mt-8 rounded-xl overflow-hidden h-32 sm:h-48 bg-white/10 backdrop-blur-sm relative group"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -115,7 +115,7 @@ export default function ContactContent() {
       </div>
 
       <motion.div
-        className="bg-white/95 backdrop-blur-sm rounded-xl p-6 lg:p-8 text-gray-900 shadow-xl"
+        className="bg-white/95 backdrop-blur-sm rounded-xl p-4 sm:p-6 lg:p-8 text-gray-900 shadow-xl"
         initial={{ opacity: 0, x: 20 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
@@ -176,7 +176,7 @@ export default function ContactContent() {
           <div>
             <label className="block text-sm font-semibold text-gray-700 mb-2">Message</label>
             <textarea
-              rows="4"
+              rows="3"
               className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-600 focus:border-transparent outline-none transition-all resize-none"
               placeholder="Tell us about your requirements..."
             />

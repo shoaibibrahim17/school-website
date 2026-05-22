@@ -10,7 +10,7 @@ const marqueeContent = [
 
 export default function AdmissionsNoticeBar() {
   return (
-    <div className="sticky top-16 lg:top-20 z-40 w-full overflow-hidden">
+    <div className="fixed top-16 lg:top-20 z-40 w-full overflow-hidden">
       <div className="relative bg-gradient-to-r from-brand-600 via-brand-700 to-teal-600">
         <div className="flex items-center h-10 sm:h-11 px-3 sm:px-4">
 
