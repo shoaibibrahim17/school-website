@@ -29,7 +29,7 @@ export default function AdmissionsNoticeBar() {
             <motion.div
               className="flex whitespace-nowrap"
               animate={{ x: ['0%', '-50%'] }}
-              transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
+              transition={{ duration: 12, repeat: Infinity, ease: 'linear' }}
             >
               {[1, 2].map((set) => (
                 <div key={set} className="flex items-center gap-3 sm:gap-5 flex-shrink-0 px-2">
