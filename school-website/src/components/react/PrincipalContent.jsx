@@ -2,14 +2,13 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const principal = {
-  title: "Principal's Message",
+  name: 'Naser Bin Easa',
+  title: 'Principal',
   message: [
-    "Welcome to Mother's Care High School. It is with great pride and enthusiasm that we lead this institution, where every child is nurtured to reach their full potential.",
-    'Our mission is to provide an environment where students develop not just academic excellence, but also strong character, critical thinking, and a lifelong love for learning. We believe in holistic education that prepares our students to face the challenges of tomorrow with confidence and competence.',
-    'Our dedicated faculty works tirelessly to ensure that each student receives personalized attention and guidance. Together, we are building a community of learners who are compassionate, innovative, and ready to make a positive impact on the world.',
-    'We invite you to be part of our journey in shaping the leaders of tomorrow.',
+    'I am truly excited about the possibilities that lie ahead for our students and our school community. Let us work together to make this school year a memorable and enriching experience for everyone.',
+    'Wishing you and your family a wonderful school year filled with growth, learning, and success.',
   ],
-  experience: 'Excellence in Education',
+  experience: 'Leading with Care & Excellence',
 };
 
 const paraVariants = {
@@ -62,7 +61,7 @@ export default function PrincipalContent() {
         >
           <div className="text-center">
             <div className="text-lg sm:text-2xl font-bold text-brand-600">15+</div>
-            <div className="text-[10px] sm:text-xs font-medium text-gray-600">Years Excellence</div>
+            <div className="text-[10px] sm:text-xs font-medium text-gray-600">Years of Excellence</div>
           </div>
         </motion.div>
 
@@ -70,7 +69,7 @@ export default function PrincipalContent() {
         <div className="hidden sm:block absolute top-1/2 -left-8 w-16 h-16 bg-teal-200/40 rounded-full" />
       </div>
 
-      <div>
+      <div className="flex flex-col gap-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -81,51 +80,54 @@ export default function PrincipalContent() {
             Principal's Message
           </span>
 
-          <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-2">
-            Nurturing Excellence
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-2">
+            A Word from Our Principal
           </h2>
-          <p className="text-lg text-brand-600 font-medium mb-6">
-            Building Tomorrow's Leaders Today
+          <p className="text-base sm:text-lg text-brand-600 font-medium">
+            {principal.name} &middot; {principal.title}
           </p>
         </motion.div>
 
-        <div className="space-y-5 text-gray-600 leading-relaxed">
-          {principal.message.map((para, i) => (
-            <motion.p
-              key={i}
-              className="bg-brand-50/50 rounded-xl px-5 py-4 hover:bg-brand-100/50 transition-colors"
-              variants={paraVariants}
-              initial="hidden"
-              whileInView="visible"
-              custom={i}
-              viewport={{ once: true, margin: '-30px' }}
-            >
-              {para}
-            </motion.p>
-          ))}
+        <div className="relative">
+          <div className="absolute -top-3 -left-1.5 text-4xl sm:text-6xl text-brand-200 font-serif leading-none select-none" aria-hidden="true">&ldquo;</div>
+          <div className="space-y-4 sm:space-y-6 text-gray-600 leading-relaxed pl-4 sm:pl-6 border-l-2 sm:border-l-4 border-brand-300">
+            {principal.message.map((para, i) => (
+              <motion.p
+                key={i}
+                className="text-sm sm:text-base lg:text-lg italic leading-relaxed"
+                variants={paraVariants}
+                initial="hidden"
+                whileInView="visible"
+                custom={i}
+                viewport={{ once: true, margin: '-30px' }}
+              >
+                {para}
+              </motion.p>
+            ))}
+          </div>
         </div>
 
         <motion.div
-          className="mt-8 pt-6 border-t border-gray-100"
+          className="mt-2 sm:mt-10 pt-4 sm:pt-6 border-t border-gray-100"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.6 }}
         >
-          <div className="flex items-center gap-4 group">
+          <div className="flex items-center gap-3 sm:gap-4 group">
             <motion.div
-              className="w-16 h-16 bg-brand-600 rounded-full flex items-center justify-center shadow-md"
+              className="w-12 h-12 sm:w-16 sm:h-16 bg-brand-600 rounded-full flex items-center justify-center shadow-md"
               whileHover={{ scale: 1.1, rotate: 5 }}
               transition={{ duration: 0.3 }}
             >
-              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
               </svg>
             </motion.div>
             <div>
-              <p className="font-bold text-gray-900 group-hover:text-brand-600 transition-colors">Principal</p>
-              <p className="text-gray-500 text-sm">Mother's Care High School</p>
-              <p className="text-brand-600 text-xs font-medium mt-1">{principal.experience}</p>
+              <p className="font-bold text-gray-900 group-hover:text-brand-600 transition-colors text-sm sm:text-lg">{principal.name}</p>
+              <p className="text-gray-500 text-xs sm:text-sm">{principal.title}, Mother's Care High School</p>
+              <p className="text-brand-600 text-[11px] sm:text-xs font-medium mt-0.5 sm:mt-1">{principal.experience}</p>
             </div>
           </div>
         </motion.div>

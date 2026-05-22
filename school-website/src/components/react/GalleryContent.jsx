@@ -57,7 +57,36 @@ export default function GalleryContent() {
         ))}
       </div>
 
-      <motion.div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" layout>
+      <motion.div className="flex sm:hidden gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-none pb-4 -mx-4 px-4" layout>
+        <AnimatePresence mode="popLayout">
+          {filteredItems.map((item) => (
+            <motion.div
+              key={item.title}
+              className="group relative overflow-hidden rounded-xl aspect-[4/3] cursor-pointer snap-start shrink-0 w-[260px]"
+              variants={itemVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              layout
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.3 }}
+            >
+              <PlaceholderImage type={item.type} aspect="4/3" className="w-full h-full" />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-900/80 via-brand-700/30 to-transparent opacity-60" />
+              <div className="absolute bottom-4 left-4 right-4">
+                <p className="text-white font-bold text-sm">{item.title}</p>
+                <p className="text-brand-200 text-xs">{item.category}</p>
+              </div>
+              <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-2.5 py-0.5 rounded-lg">
+                <span className="text-[11px] font-medium text-brand-600">{item.category}</span>
+              </div>
+            </motion.div>
+          ))}
+        </AnimatePresence>
+        <div className="snap-start shrink-0 w-4" />
+      </motion.div>
+
+      <motion.div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-6" layout>
         <AnimatePresence mode="popLayout">
           {filteredItems.map((item) => (
             <motion.div
@@ -72,9 +101,7 @@ export default function GalleryContent() {
               transition={{ duration: 0.3 }}
             >
               <PlaceholderImage type={item.type} aspect="4/3" className="w-full h-full" />
-
               <div className="absolute inset-0 bg-gradient-to-t from-brand-900/80 via-brand-700/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
               <motion.div
                 className="absolute inset-0 flex items-center justify-center"
                 initial={{ opacity: 0 }}
@@ -85,7 +112,6 @@ export default function GalleryContent() {
                   <p className="text-brand-200 text-sm">{item.category}</p>
                 </div>
               </motion.div>
-
               <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-lg">
                 <span className="text-xs font-medium text-brand-600">{item.category}</span>
               </div>

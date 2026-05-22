@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import AnimatedCounter from './AnimatedCounter.jsx';
 import PlaceholderImage from './PlaceholderImage.jsx';
+import HeroAdmissionsCard from './HeroAdmissionsCard.jsx';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -21,10 +22,10 @@ const itemVariants = {
 };
 
 const stats = [
+  { value: 300, label: 'New Admissions', suffix: '+' },
+  { value: 1200, label: 'Active Students', suffix: '+' },
+  { value: 99, label: 'Successful Results', suffix: '%' },
   { value: 15, label: 'Years of Excellence', suffix: '+' },
-  { value: 850, label: 'Happy Students', suffix: '+' },
-  { value: 42, label: 'Expert Teachers', suffix: '+' },
-  { value: 98, label: 'Board Pass Rate', suffix: '%' },
 ];
 
 export default function HeroContent() {
@@ -93,21 +94,26 @@ export default function HeroContent() {
                 animate={{ scale: [1, 1.5, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
               />
-              <span className="text-brand-700 font-semibold text-sm">SSC Affiliated since 2011</span>
+              <span className="text-brand-700 font-semibold text-sm">English Medium | SSC Affiliated since 2011</span>
             </motion.div>
 
-            <motion.h1 variants={itemVariants} className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-[1.05] mb-6">
-              <span className="block">Building</span>
-              <span className="block text-brand-600">Bright Futures</span>
-              <span className="block text-gray-800">for Tomorrow</span>
+            <motion.h1 variants={itemVariants} className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-[1.05] mb-4">
+              <span className="block">Mother's Care</span>
+              <span className="block text-brand-600">High School</span>
             </motion.h1>
 
+            <motion.div variants={itemVariants} className="mb-4">
+              <span className="text-base sm:text-lg lg:text-xl text-brand-500 font-semibold italic leading-relaxed block max-w-xl">
+                &ldquo;While you take care of the world, we take care of your children&rdquo;
+              </span>
+            </motion.div>
+
             <motion.div variants={itemVariants} className="mb-6">
-              <span className="text-xs sm:text-sm uppercase tracking-[0.2em] text-brand-500 font-semibold">Mother&apos;s Care High School</span>
+              <span className="text-xs sm:text-sm uppercase tracking-[0.2em] text-brand-500 font-semibold">Established 2011 &middot; Adilabad &middot; Telangana</span>
             </motion.div>
 
             <motion.p variants={itemVariants} className="text-base sm:text-lg lg:text-xl text-gray-600 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-              Nurturing future leaders with excellence. Since 2011, we have been committed to providing quality education that empowers students to achieve their full potential and become responsible citizens.
+              A premier English Medium school where every child is nurtured with care, guided with purpose, and prepared to lead with confidence. We don&rsquo;t just educate &mdash; we build character, spark curiosity, and create a home away from home.
             </motion.p>
 
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -131,7 +137,7 @@ export default function HeroContent() {
                 <svg className="w-5 h-5 mr-2 text-gray-400 group-hover:text-brand-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
                 </svg>
-                <span>Explore More</span>
+                <span>Discover Our School</span>
               </motion.a>
             </motion.div>
 
@@ -153,14 +159,14 @@ export default function HeroContent() {
               style={{ y: imageY }}
               variants={itemVariants}
             >
-              <div className="lg:hidden mb-8">
-                <div className="relative bg-white/70 backdrop-blur-md rounded-2xl p-1.5 shadow-xl border border-white/50">
+              <div className="lg:hidden relative mb-8">
+                <div className="relative bg-white/70 backdrop-blur-md rounded-2xl p-1 shadow-xl border border-white/50">
                   <PlaceholderImage type="classroom" aspect="16/9" className="rounded-xl" />
-                  <div className="absolute bottom-3 left-3 right-3">
-                    <div className="bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2 shadow-sm">
-                      <p className="text-gray-800 font-semibold text-xs">Quality Education</p>
-                      <p className="text-gray-500 text-[10px]">Holistic Development</p>
-                    </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent rounded-xl" />
+                </div>
+                <div className="absolute -bottom-4 left-2 right-2 z-10">
+                  <div className="max-w-xs mx-auto">
+                    <HeroAdmissionsCard />
                   </div>
                 </div>
               </div>
@@ -196,12 +202,12 @@ export default function HeroContent() {
                         <div className="flex items-center gap-3">
                           <div className="w-10 h-10 bg-brand-600 rounded-lg flex items-center justify-center flex-shrink-0">
                             <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                             </svg>
                           </div>
                           <div className="min-w-0">
-                            <p className="font-bold text-gray-800 text-sm leading-tight">Quality Education</p>
-                            <p className="text-xs text-gray-500 truncate">Holistic Development</p>
+                            <p className="font-bold text-gray-800 text-sm leading-tight">Masood Chowk, Adilabad</p>
+                            <p className="text-xs text-gray-500 truncate">Visit Our Campus</p>
                           </div>
                         </div>
                       </div>
@@ -215,14 +221,14 @@ export default function HeroContent() {
                   transition={{ duration: 4, delay: 0.5, repeat: Infinity, ease: 'easeInOut' }}
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-11 h-11 bg-teal-50 rounded-full flex items-center justify-center">
-                      <svg className="w-5 h-5 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    <div className="w-11 h-11 bg-brand-50 rounded-full flex items-center justify-center">
+                      <svg className="w-5 h-5 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                       </svg>
                     </div>
                     <div>
-                      <p className="font-bold text-gray-800 text-sm">ISO 9001:2015</p>
-                      <p className="text-xs text-gray-500">Certified</p>
+                      <p className="font-bold text-gray-800 text-sm">English Medium</p>
+                      <p className="text-xs text-gray-500">SSC Board</p>
                     </div>
                   </div>
                 </motion.div>
@@ -244,6 +250,12 @@ export default function HeroContent() {
                     </div>
                   </div>
                 </motion.div>
+              </div>
+
+              <div className="hidden lg:block">
+                <div className="absolute right-0 top-[15%] w-64 xl:w-72">
+                  <HeroAdmissionsCard />
+                </div>
               </div>
             </motion.div>
           </div>

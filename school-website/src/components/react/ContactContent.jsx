@@ -5,7 +5,7 @@ const contactInfo = [
   {
     icon: 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z',
     title: 'Address',
-    content: 'Near Bus Stand, Adilabad, Telangana - 504001',
+    content: 'Masood Chowk, Adilabad, Telangana',
   },
   {
     icon: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
@@ -15,7 +15,8 @@ const contactInfo = [
   {
     icon: 'M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z',
     title: 'Phone',
-    content: '+91 984912 3456',
+    content: '9154408383',
+    href: 'tel:9154408383',
   },
 ];
 
@@ -57,7 +58,13 @@ export default function ContactContent() {
             </div>
             <div className="flex-1">
               <h3 className="font-bold text-white mb-1">{info.title}</h3>
-              <p className="text-white/70">{info.content}</p>
+              {info.href ? (
+                <a href={info.href} className="text-white/70 hover:text-white transition-colors">
+                  {info.content}
+                </a>
+              ) : (
+                <p className="text-white/70">{info.content}</p>
+              )}
             </div>
           </motion.div>
         ))}
@@ -124,7 +131,7 @@ export default function ContactContent() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
           </motion.div>
-          <h3 className="text-2xl font-bold">Send us a Message</h3>
+          <h3 className="text-2xl font-bold">Enquiry &amp; Admissions</h3>
         </div>
 
         <form className="space-y-4">
@@ -162,7 +169,7 @@ export default function ContactContent() {
             <input
               type="tel"
               className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-600 focus:border-transparent outline-none transition-all"
-              placeholder="+91 98491 23456"
+              placeholder="9154408383"
             />
           </div>
 

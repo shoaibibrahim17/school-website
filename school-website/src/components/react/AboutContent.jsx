@@ -6,7 +6,7 @@ const features = [
   {
     icon: 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z',
     title: 'Academic Excellence',
-    description: 'Comprehensive SSC curriculum focused on conceptual understanding, critical thinking, and practical application.',
+    description: 'English Medium SSC curriculum focused on conceptual understanding, critical thinking, and practical application.',
   },
   {
     icon: 'M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z',
@@ -26,9 +26,9 @@ const features = [
 ];
 
 const achievements = [
-  { number: '98%', label: 'Board Pass Rate' },
-  { number: '50+', label: 'Competitions Won' },
-  { number: '15+', label: 'Sports Activities' },
+  { number: '99%', label: 'Successful Results' },
+  { number: '1200+', label: 'Active Students' },
+  { number: '300+', label: 'New Admissions' },
 ];
 
 const cardVariants = {
@@ -124,28 +124,56 @@ export default function AboutContent() {
       </div>
 
       <div className="space-y-4">
-        {features.map((feature, index) => (
-          <motion.div
-            key={feature.title}
-            className="group flex gap-4 p-5 bg-white rounded-xl border border-gray-100 hover:border-brand-200 hover:shadow-md hover:shadow-brand-100/50 transition-all duration-300"
-            variants={cardVariants}
-            initial="hidden"
-            whileInView="visible"
-            custom={index}
-            viewport={{ once: true, margin: '-50px' }}
-            whileHover={{ y: -2, scale: 1.01 }}
-          >
-            <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-brand-500 to-teal-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-              <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={feature.icon} />
-              </svg>
-            </div>
-            <div className="flex-1">
-              <h3 className="font-bold text-gray-900 mb-2 group-hover:text-brand-600 transition-colors">{feature.title}</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
-            </div>
-          </motion.div>
-        ))}
+        <div className="flex md:hidden gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-none pb-4 -mx-4 px-4">
+          {features.map((feature, index) => (
+            <motion.div
+              key={feature.title}
+              className="group flex gap-3 p-4 bg-white rounded-xl border border-gray-100 hover:border-brand-200 hover:shadow-md transition-all duration-300 snap-start shrink-0 w-[270px] sm:w-[300px]"
+              variants={cardVariants}
+              initial="hidden"
+              whileInView="visible"
+              custom={index}
+              viewport={{ once: true, margin: '-50px' }}
+              whileHover={{ y: -2, scale: 1.01 }}
+            >
+              <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-brand-500 to-teal-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={feature.icon} />
+                </svg>
+              </div>
+              <div className="flex-1 min-w-0">
+                <h3 className="font-bold text-gray-900 mb-1.5 group-hover:text-brand-600 transition-colors text-sm">{feature.title}</h3>
+                <p className="text-gray-600 text-xs leading-relaxed">{feature.description}</p>
+              </div>
+            </motion.div>
+          ))}
+          <div className="snap-start shrink-0 w-4" />
+        </div>
+
+        <div className="hidden md:block space-y-4">
+          {features.map((feature, index) => (
+            <motion.div
+              key={feature.title}
+              className="group flex gap-4 p-5 bg-white rounded-xl border border-gray-100 hover:border-brand-200 hover:shadow-md hover:shadow-brand-100/50 transition-all duration-300"
+              variants={cardVariants}
+              initial="hidden"
+              whileInView="visible"
+              custom={index}
+              viewport={{ once: true, margin: '-50px' }}
+              whileHover={{ y: -2, scale: 1.01 }}
+            >
+              <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-brand-500 to-teal-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={feature.icon} />
+                </svg>
+              </div>
+              <div className="flex-1">
+                <h3 className="font-bold text-gray-900 mb-2 group-hover:text-brand-600 transition-colors">{feature.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
 
         <motion.a
           href="#contact"
