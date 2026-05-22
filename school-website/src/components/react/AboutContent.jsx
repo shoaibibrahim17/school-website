@@ -53,7 +53,7 @@ const imageVariants = {
 export default function AboutContent() {
   return (
     <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-      <div className="relative px-4 sm:px-0">
+      <div className="relative px-0">
         <div className="grid grid-cols-2 gap-3 sm:gap-4">
           <div className="space-y-3 sm:space-y-4">
             <motion.div
@@ -94,19 +94,19 @@ export default function AboutContent() {
         </div>
 
         <motion.div
-          className="absolute -bottom-4 right-0 sm:-right-4 bg-brand-600 text-white rounded-2xl p-4 sm:p-6 shadow-lg"
+          className="absolute -bottom-3 right-0 sm:-right-4 bg-brand-600 text-white rounded-2xl p-3 sm:p-6 shadow-lg"
           initial={{ opacity: 0, scale: 0.5, x: 20 }}
           whileInView={{ opacity: 1, scale: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.6, duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
           whileHover={{ scale: 1.05 }}
         >
-          <div className="text-2xl sm:text-4xl font-bold">15+</div>
-          <div className="text-xs sm:text-sm font-medium">Years of Excellence</div>
+          <div className="text-xl sm:text-4xl font-bold">15+</div>
+          <div className="text-[10px] sm:text-sm font-medium">Years of Excellence</div>
         </motion.div>
 
         <motion.div
-          className="absolute -top-4 left-0 sm:-left-4 bg-white rounded-2xl p-3 sm:p-4 shadow-md border border-gray-100"
+          className="absolute -top-3 left-0 sm:-left-4 bg-white rounded-2xl p-2 sm:p-4 shadow-md border border-gray-100"
           initial={{ opacity: 0, scale: 0.5, x: -20 }}
           whileInView={{ opacity: 1, scale: 1, x: 0 }}
           viewport={{ once: true }}
@@ -114,9 +114,9 @@ export default function AboutContent() {
         >
           <div className="flex gap-2 sm:gap-4">
             {achievements.map((ach) => (
-              <div className="text-center" key={ach.label}>
-                <div className="text-base sm:text-xl font-bold text-brand-600">{ach.number}</div>
-                <div className="text-[10px] sm:text-xs text-gray-500">{ach.label}</div>
+              <div className="text-center min-w-0" key={ach.label}>
+                <div className="text-sm sm:text-xl font-bold text-brand-600">{ach.number}</div>
+                <div className="text-[10px] text-gray-500">{ach.label}</div>
               </div>
             ))}
           </div>

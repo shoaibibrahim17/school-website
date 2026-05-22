@@ -23,7 +23,7 @@ const paraVariants = {
 export default function PrincipalContent() {
   return (
     <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-      <div className="relative px-4 sm:px-0">
+      <div className="relative px-0 sm:px-4">
         <motion.div
           className="relative bg-white rounded-3xl p-1 border border-gray-100 shadow-xl"
           initial={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -52,7 +52,7 @@ export default function PrincipalContent() {
         </motion.div>
 
         <motion.div
-          className="absolute -bottom-4 sm:-bottom-6 right-2 sm:-right-6 bg-white rounded-2xl p-3 sm:p-5 shadow-lg border border-gray-100"
+          className="absolute -bottom-3 right-1 sm:-bottom-6 sm:-right-6 bg-white rounded-2xl p-2 sm:p-5 shadow-lg border border-gray-100"
           initial={{ opacity: 0, scale: 0.5, x: 20 }}
           whileInView={{ opacity: 1, scale: 1, x: 0 }}
           viewport={{ once: true }}
@@ -60,12 +60,12 @@ export default function PrincipalContent() {
           animate={{ y: [0, -5, 0] }}
         >
           <div className="text-center">
-            <div className="text-lg sm:text-2xl font-bold text-brand-600">15+</div>
+            <div className="text-base sm:text-2xl font-bold text-brand-600">15+</div>
             <div className="text-[10px] sm:text-xs font-medium text-gray-600">Years of Excellence</div>
           </div>
         </motion.div>
 
-        <div className="absolute -top-4 sm:-top-6 -left-4 sm:-left-6 w-16 sm:w-20 h-16 sm:h-20 bg-brand-200/40 rounded-full" />
+        <div className="hidden sm:block absolute -top-6 -left-6 w-20 h-20 bg-brand-200/40 rounded-full" />
         <div className="hidden sm:block absolute top-1/2 -left-8 w-16 h-16 bg-teal-200/40 rounded-full" />
       </div>
 
