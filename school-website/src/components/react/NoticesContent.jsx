@@ -67,7 +67,7 @@ const cardVariants = {
 export default function NoticesContent() {
   return (
     <>
-      <div className="flex md:hidden gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-none pb-4 -mx-4 px-4">
+      <div className="flex md:hidden gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-none pb-4">
         {notices.map((notice, index) => (
           <motion.article
             key={notice.title}

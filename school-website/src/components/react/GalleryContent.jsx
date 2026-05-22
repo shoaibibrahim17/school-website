@@ -57,7 +57,7 @@ export default function GalleryContent() {
         ))}
       </div>
 
-      <motion.div className="flex sm:hidden gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-none pb-4 -mx-4 px-4" layout>
+      <motion.div className="flex sm:hidden gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-none pb-4" layout>
         <AnimatePresence mode="popLayout">
           {filteredItems.map((item) => (
             <motion.div

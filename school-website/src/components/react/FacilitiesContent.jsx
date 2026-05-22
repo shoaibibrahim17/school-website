@@ -111,7 +111,7 @@ const cardVariants = {
 export default function FacilitiesContent() {
   return (
     <>
-      <div className="flex md:hidden gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-none pb-4 -mx-4 px-4">
+      <div className="flex md:hidden gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-none pb-4">
         {facilities.map((facility, index) => {
           const LucideIcon = iconMap[facility.icon];
           return (

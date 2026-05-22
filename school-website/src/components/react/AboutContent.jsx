@@ -124,7 +124,7 @@ export default function AboutContent() {
       </div>
 
       <div className="space-y-4">
-        <div className="flex md:hidden gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-none pb-4 -mx-4 px-4">
+        <div className="flex md:hidden gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-none pb-4">
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}
