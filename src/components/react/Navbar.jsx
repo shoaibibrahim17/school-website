@@ -71,10 +71,8 @@ export default function AnimatedNavbar({ logo, schoolName, tagline, navLinks }) 
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <div className="relative flex-shrink-0">
-                <div className="w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20 rounded-2xl bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center shadow-lg shadow-brand-200/50 group-hover:shadow-xl group-hover:shadow-brand-300/50 transition-all duration-300 ring-2 ring-brand-400/20 group-hover:ring-brand-400/40">
-                  <img src={logo} alt={`${schoolName} Logo`} className="w-10 h-10 sm:w-11 sm:h-11 lg:w-12 lg:h-12 object-contain brightness-0 invert" />
-                </div>
+              <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-20 lg:h-20 flex items-center justify-center flex-shrink-0">
+                <img src={logo} alt={`${schoolName} Logo`} className="w-full h-full object-contain drop-shadow-sm" />
               </div>
               <div>
                 <span className="text-sm sm:text-base lg:text-xl font-bold text-gray-900 block leading-tight group-hover:text-brand-600 transition-colors">{schoolName}</span>
