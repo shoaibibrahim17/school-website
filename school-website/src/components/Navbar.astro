@@ -17,7 +17,7 @@ const tagline = "Est. 2011";
 
 <AnimatedNavbar
   client:load
-  logo="/logo.svg"
+  logo={import.meta.env.BASE_URL + 'logo.svg'}
   schoolName={schoolName}
   tagline={tagline}
   navLinks={navLinks}

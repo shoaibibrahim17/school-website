@@ -34,7 +34,7 @@ const socialLinks = [
 <footer class="bg-gray-900 text-white relative overflow-hidden">
   <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
     <img
-      src="/logo.svg"
+      src={import.meta.env.BASE_URL + 'logo.svg'}
       alt=""
       class="w-[500px] sm:w-[700px] lg:w-[900px] opacity-[0.03] object-contain"
       aria-hidden="true"
@@ -45,7 +45,7 @@ const socialLinks = [
       <div class="lg:col-span-1">
         <div class="flex items-center gap-4 mb-4">
           <div class="w-16 h-16 bg-gradient-to-br from-brand-500 to-brand-700 rounded-2xl flex items-center justify-center shadow-lg shadow-brand-800/30 ring-2 ring-brand-400/20">
-            <img src="/logo.svg" alt="Logo" class="w-10 h-10 brightness-0 invert" />
+            <img src={import.meta.env.BASE_URL + 'logo.svg'} alt="Logo" class="w-10 h-10 brightness-0 invert" />
           </div>
           <div>
             <span class="text-xl font-bold block">Mother's Care</span>

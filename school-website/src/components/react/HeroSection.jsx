@@ -49,7 +49,7 @@ export default function HeroContent() {
       >
         <div className="relative w-full h-full flex items-center justify-center">
           <img
-            src="/logo.svg"
+            src={import.meta.env.BASE_URL + 'logo.svg'}
             alt=""
             className="w-[700px] sm:w-[1000px] lg:w-[1300px] xl:w-[1500px] 2xl:w-[1800px] opacity-[0.035] sm:opacity-[0.04] lg:opacity-[0.045] object-contain"
             aria-hidden="true"
@@ -63,7 +63,7 @@ export default function HeroContent() {
       >
         <div className="relative w-full h-full flex items-center justify-center">
           <img
-            src="/logo.svg"
+            src={import.meta.env.BASE_URL + 'logo.svg'}
             alt=""
             className="w-[900px] sm:w-[1300px] lg:w-[1700px] xl:w-[2000px] opacity-[0.015] blur-[1px] object-contain"
             aria-hidden="true"

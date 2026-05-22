@@ -4,7 +4,7 @@ import PrincipalContent from './react/PrincipalContent.jsx';
 
 <section id="principal" class="py-20 lg:py-28 bg-gradient-to-br from-slate-50 via-white to-brand-50 relative overflow-hidden">
   <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
-    <img src="/logo.svg" alt="" class="w-[400px] sm:w-[600px] lg:w-[800px] opacity-[0.02] object-contain" aria-hidden="true" />
+    <img src={import.meta.env.BASE_URL + 'logo.svg'} alt="" class="w-[400px] sm:w-[600px] lg:w-[800px] opacity-[0.02] object-contain" aria-hidden="true" />
   </div>
   <div class="absolute top-20 left-10 w-64 h-64 bg-brand-100/40 rounded-full blur-3xl"></div>
   <div class="absolute bottom-20 right-10 w-64 h-64 bg-teal-100/40 rounded-full blur-3xl"></div>
