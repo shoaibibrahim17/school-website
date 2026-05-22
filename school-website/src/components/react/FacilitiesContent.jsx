@@ -111,42 +111,7 @@ const cardVariants = {
 export default function FacilitiesContent() {
   return (
     <>
-      <div className="flex md:hidden gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-none pb-4">
-        {facilities.map((facility, index) => {
-          const LucideIcon = iconMap[facility.icon];
-          return (
-            <motion.div
-              key={facility.title}
-              className="group relative p-5 bg-white rounded-2xl border border-gray-100 transition-all duration-500 overflow-hidden snap-start shrink-0 w-[280px] sm:w-[320px]"
-              variants={cardVariants}
-              initial="hidden"
-              whileInView="visible"
-              custom={index}
-              viewport={{ once: true, margin: '-50px' }}
-              whileHover={{ y: -3, scale: 1.01, boxShadow: '0 20px 40px rgba(79, 70, 229, 0.1)' }}
-            >
-              <div className={`absolute inset-0 bg-gradient-to-br ${facility.color} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-500`} />
-              <div className="absolute -top-8 -right-8 w-24 h-24 bg-gradient-to-br ${facility.color} opacity-0 group-hover:opacity-[0.04] rounded-full blur-2xl transition-opacity duration-700" />
-              <div className="relative h-full flex flex-col">
-                <div className="flex items-start gap-3 mb-3">
-                  <motion.div
-                    className={`flex-shrink-0 w-11 h-11 bg-gradient-to-br ${facility.color} rounded-xl flex items-center justify-center shadow-md`}
-                    whileHover={{ scale: 1.1, rotate: -3 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <LucideIcon className="text-white w-5 h-5" strokeWidth={1.5} />
-                  </motion.div>
-                </div>
-                <h3 className="font-bold text-gray-900 mb-1.5 text-base leading-snug">{facility.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed flex-1 line-clamp-3">{facility.description}</p>
-              </div>
-            </motion.div>
-          );
-        })}
-        <div className="snap-start shrink-0 w-4" />
-      </div>
-
-      <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-5 auto-rows-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-5 auto-rows-auto">
         {facilities.map((facility, index) => {
           const LucideIcon = iconMap[facility.icon];
           const spanClass =
