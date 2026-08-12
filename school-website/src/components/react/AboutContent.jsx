@@ -60,17 +60,17 @@ export default function AboutContent() {
         <div className="grid grid-cols-2 gap-3 sm:gap-4">
           <div className="space-y-3 sm:space-y-4">
             <motion.div
-              className="scroll-reveal-item aspect-square rounded-2xl overflow-hidden"
+              className="scroll-reveal-item aspect-square rounded-2xl overflow-hidden border border-gray-100"
               variants={imageVariants} initial="hidden" whileInView="visible" custom={0} viewport={{ once: false }}
-              whileHover={{ scale: 1.03 }}
+              whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
             >
               <PlaceholderImage type="students" aspect="1/1" className="w-full h-full" />
             </motion.div>
             <motion.div
-              className="scroll-reveal-item aspect-square rounded-2xl overflow-hidden"
+              className="scroll-reveal-item aspect-square rounded-2xl overflow-hidden border border-gray-100"
               variants={imageVariants} initial="hidden" whileInView="visible" custom={1} viewport={{ once: false }}
-              whileHover={{ scale: 1.03 }}
+              whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
             >
               <PlaceholderImage type="lab" aspect="1/1" className="w-full h-full" />
@@ -78,17 +78,17 @@ export default function AboutContent() {
           </div>
           <div className="space-y-3 sm:space-y-4 pt-4 sm:pt-8">
             <motion.div
-              className="scroll-reveal-item aspect-square rounded-2xl overflow-hidden"
+              className="scroll-reveal-item aspect-square rounded-2xl overflow-hidden border border-gray-100"
               variants={imageVariants} initial="hidden" whileInView="visible" custom={2} viewport={{ once: false }}
-              whileHover={{ scale: 1.03 }}
+              whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
             >
               <PlaceholderImage type="sports" aspect="1/1" className="w-full h-full" />
             </motion.div>
             <motion.div
-              className="scroll-reveal-item aspect-square rounded-2xl overflow-hidden"
+              className="scroll-reveal-item aspect-square rounded-2xl overflow-hidden border border-gray-100"
               variants={imageVariants} initial="hidden" whileInView="visible" custom={3} viewport={{ once: false }}
-              whileHover={{ scale: 1.03 }}
+              whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
             >
               <PlaceholderImage type="assembly" aspect="1/1" className="w-full h-full" />
@@ -97,7 +97,7 @@ export default function AboutContent() {
         </div>
 
         <motion.div
-          className="absolute -bottom-3 right-0 sm:-right-4 bg-brand-600 text-white rounded-2xl p-3 sm:p-6 shadow-lg"
+          className="absolute -bottom-3 right-0 sm:-right-4 bg-brand-600 text-white rounded-2xl p-3 sm:p-6 shadow-md"
           initial={{ opacity: 0, scale: 0.5, x: 20 }}
           whileInView={{ opacity: 1, scale: 1, x: 0 }}
           viewport={{ once: false }}
@@ -139,7 +139,7 @@ export default function AboutContent() {
               viewport={{ once: false, margin: '-50px' }}
               whileHover={{ y: -2, scale: 1.01 }}
             >
-              <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-brand-500 to-teal-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 bg-brand-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <svg className="w-5 h-5 sm:w-7 sm:h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={feature.icon} />
                 </svg>

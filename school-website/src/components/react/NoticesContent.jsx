@@ -126,12 +126,11 @@ export default function NoticesContent() {
       {/* Desktop items removed to share single grid grid-cols */}
 
       <motion.div
-        className="mt-12 bg-gradient-to-r from-brand-600 via-teal-600 to-brand-600 bg-[length:200%_100%] rounded-2xl p-8 lg:p-12 text-center relative overflow-hidden"
+        className="mt-12 bg-brand-600 rounded-2xl p-8 lg:p-12 text-center relative overflow-hidden"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false }}
         transition={{ duration: 1.055 }}
-        animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
       >
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
           <img src={(import.meta.env.BASE_URL + '/logo.svg').replace('//', '/')} alt="" className="w-[200px] sm:w-[300px] lg:w-[400px] opacity-20 brightness-0 invert object-contain" aria-hidden="true" />

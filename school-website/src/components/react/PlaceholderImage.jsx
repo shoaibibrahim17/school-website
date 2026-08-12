@@ -12,24 +12,24 @@ const icons = {
   event: 'M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z',
 };
 
+const bgColors = {
+  classroom: 'bg-brand-50',
+  students: 'bg-teal-50',
+  lab: 'bg-brand-50',
+  sports: 'bg-teal-50',
+  assembly: 'bg-brand-50',
+  science: 'bg-brand-50',
+  music: 'bg-teal-50',
+  event: 'bg-brand-50',
+};
+
 export default function PlaceholderImage({ type = 'classroom', aspect = '4/3', className = '' }) {
   const iconPath = icons[type] || icons.classroom;
-  const gradientMap = {
-    classroom: 'from-brand-100 via-brand-50 to-teal-50',
-    students: 'from-brand-50 via-teal-50 to-brand-100',
-    lab: 'from-teal-50 via-brand-50 to-brand-100',
-    sports: 'from-brand-50 via-brand-100 to-teal-50',
-    assembly: 'from-teal-100 via-brand-50 to-brand-50',
-    science: 'from-brand-100 via-teal-50 to-brand-50',
-    music: 'from-brand-50 via-teal-100 to-brand-100',
-    event: 'from-teal-50 via-brand-100 to-brand-50',
-  };
-  const gradient = gradientMap[type] || gradientMap.classroom;
+  const bgClass = bgColors[type] || bgColors.classroom;
 
   return (
-    <div className={`relative overflow-hidden bg-gradient-to-br ${gradient} ${className}`}
+    <div className={`relative overflow-hidden ${bgClass} ${className}`}
       style={{ aspectRatio: aspect === '4/3' ? '4/3' : aspect === '16/9' ? '16/9' : '1/1' }}>
-      <div className="absolute inset-0 bg-gradient-to-t from-black/[0.03] to-transparent" />
       <div className="absolute inset-0 flex items-center justify-center">
         <motion.div
           className="flex flex-col items-center gap-2"
@@ -38,7 +38,7 @@ export default function PlaceholderImage({ type = 'classroom', aspect = '4/3', c
           transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
         >
           <motion.div
-            className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white/60 backdrop-blur-sm flex items-center justify-center shadow-sm"
+            className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white flex items-center justify-center shadow-sm"
             animate={{ y: [0, -6, 0], scale: [1, 1.02, 1] }}
             transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
           >
@@ -48,9 +48,6 @@ export default function PlaceholderImage({ type = 'classroom', aspect = '4/3', c
           </motion.div>
         </motion.div>
       </div>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.4)_0%,transparent_60%)]" />
-      <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-white/10 to-transparent" />
     </div>
   );
 }
-

@@ -148,12 +148,12 @@ export default function AnimatedNavbar({ logo, schoolName, tagline, navLinks }) 
               className="fixed inset-0 bg-black/30 backdrop-blur-sm z-40 lg:hidden"
               onClick={() => setMobileOpen(false)}
             />
-            <motion.div
+             <motion.div
               variants={drawerVariants}
               initial="closed"
               animate="open"
               exit="exit"
-              className="fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-white/95 backdrop-blur-xl z-50 lg:hidden shadow-2xl"
+              className="fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-white z-50 lg:hidden shadow-2xl"
             >
               <div className="p-6 flex flex-col h-full">
                 <div className="flex justify-end mb-8">

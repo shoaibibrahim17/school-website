@@ -126,20 +126,18 @@ export default function FacilitiesContent() {
           return (
             <motion.div
               key={facility.title}
-              className={`scroll-reveal-item hover-lift group relative p-6 lg:p-8 bg-gradient-to-br ${facility.gradient} rounded-2xl border border-white/80 transition-all duration-500 overflow-hidden ${spanClass}`}
+              className={`scroll-reveal-item hover-lift group relative p-6 lg:p-8 bg-white rounded-2xl border border-gray-100 transition-all duration-500 overflow-hidden ${spanClass}`}
               variants={cardVariants}
               initial="hidden"
               whileInView="visible"
               custom={index}
               viewport={{ once: false, margin: '-50px' }}
-              whileHover={{ y: -6, scale: 1.006, boxShadow: '0 26px 60px rgba(15, 23, 42, 0.14)' }}
+              whileHover={{ y: -6, scale: 1.006, boxShadow: '0 20px 40px rgba(79, 70, 229, 0.08)' }}
             >
-              <div className={`absolute inset-0 bg-gradient-to-br ${facility.color} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-500`} />
-              <div className="absolute -top-8 -right-8 w-24 h-24 bg-gradient-to-br ${facility.color} opacity-0 group-hover:opacity-[0.04] rounded-full blur-2xl transition-opacity duration-700" />
               <div className="relative h-full flex flex-col">
                 <div className="flex items-start gap-4 mb-4">
                   <motion.div
-                    className={`flex-shrink-0 w-12 h-12 ${facility.size === 'large' ? 'lg:w-14 lg:h-14' : ''} bg-gradient-to-br ${facility.color} rounded-xl flex items-center justify-center shadow-md group-hover:shadow-lg transition-all duration-300`}
+                    className={`flex-shrink-0 w-12 h-12 ${facility.size === 'large' ? 'lg:w-14 lg:h-14' : ''} bg-brand-600 rounded-xl flex items-center justify-center shadow-sm group-hover:shadow-md transition-all duration-300`}
                     whileHover={{ scale: 1.08, rotate: -2 }}
                     transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
                   >

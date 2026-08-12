@@ -10,12 +10,12 @@ export default function HeroAdmissionsCard() {
       transition={{ delay: 1.1, duration: 1.15, ease: [0.16, 1, 0.3, 1] }}
     >
       <motion.div
-        className="relative bg-gradient-to-br from-brand-600 to-teal-600 rounded-2xl p-4 sm:p-5 border border-white/25 shadow-xl shadow-slate-900/15 overflow-hidden"
+        className="relative bg-brand-600 rounded-2xl p-4 sm:p-5 border border-white/25 shadow-lg overflow-hidden"
         animate={{ y: [0, -4, 0] }}
         transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
         whileHover={{ scale: 1.012, y: -6 }}
       >
-        <div className="absolute -top-10 -right-10 w-24 h-24 bg-white/15 rounded-full blur-2xl" />
+        <div className="absolute -top-10 -right-10 w-24 h-24 bg-white/10 rounded-full blur-2xl" />
         <div className="absolute -bottom-8 -left-8 w-20 h-20 bg-white/10 rounded-full blur-2xl" />
 
         <motion.div
@@ -40,7 +40,7 @@ export default function HeroAdmissionsCard() {
           <h3 className="text-white text-base sm:text-lg font-bold leading-tight mb-1">
             2026–27
             <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 to-yellow-400">Academic Year</span>
+            <span className="text-yellow-200">Academic Year</span>
           </h3>
           <p className="text-white/80 text-xs mt-2 leading-relaxed">
             Limited seats available for Jr. KG to Class X.
@@ -75,12 +75,6 @@ export default function HeroAdmissionsCard() {
           style={{
             background: 'linear-gradient(135deg, rgba(255,255,255,0.08) 0%, transparent 50%)',
           }}
-        />
-
-        <motion.div
-          className="absolute -inset-full top-0 h-full w-1/2 bg-gradient-to-r from-transparent via-white/5 to-transparent skew-x-[-20deg]"
-          animate={{ x: ['-200%', '300%'] }}
-          transition={{ duration: 12, repeat: Infinity, ease: 'linear', delay: 2 }}
         />
       </motion.div>
     </motion.div>

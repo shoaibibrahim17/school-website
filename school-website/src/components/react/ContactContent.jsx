@@ -45,7 +45,7 @@ export default function ContactContent() {
         {contactInfo.map((info, index) => (
           <motion.div
             key={info.title}
-            className="scroll-reveal-item group flex gap-4 p-5 bg-white/10 backdrop-blur-sm rounded-xl hover:bg-white/15 transition-all duration-300"
+            className="scroll-reveal-item group flex gap-4 p-5 bg-white/10 rounded-xl hover:bg-white/15 transition-all duration-300"
             variants={infoVariants}
             initial="hidden"
             whileInView="visible"
@@ -84,7 +84,7 @@ export default function ContactContent() {
               <motion.a
                 key={social.name}
                 href="#"
-                className={`w-11 h-11 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center hover:bg-white transition-all duration-300 ${social.brand}`}
+                className={`w-11 h-11 bg-white/15 rounded-xl flex items-center justify-center hover:bg-white transition-all duration-300 ${social.brand}`}
                 aria-label={social.name}
                 whileHover={{ scale: 1.12, y: -4 }}
                 whileTap={{ scale: 0.95 }}
@@ -98,7 +98,7 @@ export default function ContactContent() {
         </motion.div>
 
         <motion.div
-          className="mt-4 sm:mt-8 rounded-xl overflow-hidden h-32 sm:h-48 bg-white/10 backdrop-blur-sm relative group"
+          className="mt-4 sm:mt-8 rounded-xl overflow-hidden h-32 sm:h-48 bg-white/5 relative group"
           initial={{ opacity: 0, y: 34, filter: 'blur(8px)' }}
           whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           viewport={{ once: false }}
@@ -117,7 +117,7 @@ export default function ContactContent() {
       </div>
 
       <motion.div
-        className="scroll-reveal-item bg-white/95 backdrop-blur-sm rounded-xl p-4 sm:p-6 lg:p-8 text-gray-900 shadow-xl"
+        className="scroll-reveal-item bg-white rounded-xl p-4 sm:p-6 lg:p-8 text-gray-900 shadow-md border border-gray-100"
         initial={{ opacity: 0, x: 36, scale: 0.985, filter: 'blur(10px)' }}
         whileInView={{ opacity: 1, x: 0, scale: 1, filter: 'blur(0px)' }}
         viewport={{ once: false }}

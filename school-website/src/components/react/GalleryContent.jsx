@@ -64,7 +64,7 @@ export default function GalleryContent() {
           {filteredItems.map((item) => (
             <motion.div
               key={item.title}
-              className="scroll-reveal-item group relative overflow-hidden rounded-xl aspect-[4/3] cursor-pointer"
+              className="scroll-reveal-item group relative overflow-hidden rounded-xl aspect-[4/3] cursor-pointer border border-gray-100"
               variants={itemVariants}
               initial="hidden"
               animate="visible"
@@ -74,7 +74,7 @@ export default function GalleryContent() {
               transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
             >
               <PlaceholderImage type={item.type} aspect="4/3" className="w-full h-full" />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-900/80 via-brand-700/30 to-transparent opacity-100 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-brand-900/75 opacity-100 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <motion.div
                 className="absolute inset-0 flex items-end sm:items-center justify-start sm:justify-center p-4 sm:p-0"
                 initial={{ opacity: 1 }}
