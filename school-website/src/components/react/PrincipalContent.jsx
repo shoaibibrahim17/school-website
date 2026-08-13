@@ -80,7 +80,7 @@ export default function PrincipalContent() {
             Principal's Message
           </span>
 
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-2">
+          <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-2">
             A Word from Our Principal
           </h2>
           <p className="text-base sm:text-lg text-brand-600 font-medium">
@@ -135,4 +135,3 @@ export default function PrincipalContent() {
     </div>
   );
 }
-
