@@ -42,7 +42,7 @@ export default function HeroContent() {
       <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-teal-50 rounded-full blur-[100px] opacity-70 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center lg:min-h-[calc(100vh-5rem)]">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-8 items-center lg:min-h-[calc(100vh-5rem)]">
           
           {/* Left Column - Text Content */}
           <div className="lg:col-span-5 lg:pr-4 pt-10 sm:pt-16 lg:pt-0">
@@ -117,14 +117,30 @@ export default function HeroContent() {
             </motion.div>
           </div>
 
-          {/* Right Column - Pinterest Style Masonry */}
-          <div className="lg:col-span-7 pb-10 lg:pb-0">
-            <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:gap-8 max-w-2xl mx-auto">
-              <motion.div variants={containerVariants} initial="hidden" animate="visible" className="flex flex-col gap-4 sm:gap-6 lg:gap-8">
+          {/* Right Column */}
+          <div className="lg:col-span-7 pb-6 lg:pb-0">
+            
+            {/* Mobile: Campus Building Image */}
+            <motion.div 
+              className="lg:hidden relative rounded-2xl overflow-hidden shadow-xl"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <img 
+                src="/school-building.jpg" 
+                alt="Mother's Care High School Campus" 
+                className="w-full h-auto object-cover object-center rounded-2xl" 
+              />
+            </motion.div>
+
+            {/* Desktop: Pinterest Style Masonry */}
+            <div className="hidden lg:grid lg:grid-cols-2 gap-8 max-w-2xl ml-auto">
+              <motion.div variants={containerVariants} initial="hidden" animate="visible" className="flex flex-col gap-8">
                 <PinTile {...pins[0]} />
                 <PinTile {...pins[1]} />
               </motion.div>
-              <motion.div variants={containerVariants} initial="hidden" animate="visible" className="flex flex-col gap-4 sm:gap-6 lg:gap-8">
+              <motion.div variants={containerVariants} initial="hidden" animate="visible" className="flex flex-col gap-8">
                 <PinTile {...pins[2]} />
                 <PinTile {...pins[3]} />
               </motion.div>
