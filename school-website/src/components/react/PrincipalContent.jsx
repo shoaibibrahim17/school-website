@@ -58,7 +58,6 @@ export default function PrincipalContent() {
           whileInView={{ opacity: 1, scale: 1, x: 0 }}
           viewport={{ once: false }}
           transition={{ delay: 0.4, duration: 1.05, ease: [0.16, 1, 0.3, 1] }}
-          animate={{ y: [0, -7, 0] }}
         >
           <div className="text-center">
             <div className="text-base sm:text-2xl font-bold text-brand-600">15+</div>

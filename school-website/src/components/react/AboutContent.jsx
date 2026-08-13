@@ -32,24 +32,20 @@ const achievements = [
 ];
 
 const cardVariants = {
-  hidden: { opacity: 0, x: -28, scale: 0.97, filter: 'blur(8px)' },
+  hidden: { opacity: 0, y: 24 },
   visible: (i) => ({
     opacity: 1,
-    x: 0,
-    scale: 1,
-    filter: 'blur(0px)',
-    transition: { delay: i * 0.12, duration: 1.05, ease: [0.16, 1, 0.3, 1] },
+    y: 0,
+    transition: { delay: i * 0.12, duration: 0.8, ease: [0.16, 1, 0.3, 1] },
   }),
 };
 
 const imageVariants = {
-  hidden: { opacity: 0, scale: 0.94, y: 28, filter: 'blur(10px)' },
+  hidden: { opacity: 0, y: 28 },
   visible: (i) => ({
     opacity: 1,
-    scale: 1,
     y: 0,
-    filter: 'blur(0px)',
-    transition: { delay: i * 0.16, duration: 1.15, ease: [0.16, 1, 0.3, 1] },
+    transition: { delay: i * 0.16, duration: 0.9, ease: [0.16, 1, 0.3, 1] },
   }),
 };
 

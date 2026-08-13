@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 
 const icons = {
   classroom: 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253',
@@ -23,31 +22,26 @@ const bgColors = {
   event: 'bg-brand-50',
 };
 
-export default function PlaceholderImage({ type = 'classroom', aspect = '4/3', className = '' }) {
+export default function PlaceholderImage({ type = 'classroom', aspect = '4/3', className = '', label }) {
   const iconPath = icons[type] || icons.classroom;
   const bgClass = bgColors[type] || bgColors.classroom;
 
   return (
-    <div className={`relative overflow-hidden ${bgClass} ${className}`}
-      style={{ aspectRatio: aspect === '4/3' ? '4/3' : aspect === '16/9' ? '16/9' : '1/1' }}>
+    <div className={`relative overflow-hidden ${bgClass} ${className}`} style={{ aspectRatio: aspect }}>
       <div className="absolute inset-0 flex items-center justify-center">
-        <motion.div
-          className="flex flex-col items-center gap-2"
-          initial={{ opacity: 0.6 }}
-          animate={{ opacity: [0.6, 0.9, 0.6] }}
-          transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-        >
-          <motion.div
-            className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white flex items-center justify-center shadow-sm"
-            animate={{ y: [0, -6, 0], scale: [1, 1.02, 1] }}
-            transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
-          >
-            <svg className="w-8 h-8 sm:w-10 sm:h-10 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div className="flex flex-col items-center gap-2">
+          <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white flex items-center justify-center shadow-sm">
+            <svg className="w-7 h-7 sm:w-8 sm:h-8 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d={iconPath} />
             </svg>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
+      {label && (
+        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/65 via-black/20 to-transparent pt-10 pb-3 px-3 pointer-events-none">
+          <p className="text-white text-xs sm:text-sm font-medium leading-snug">{label}</p>
+        </div>
+      )}
     </div>
   );
 }

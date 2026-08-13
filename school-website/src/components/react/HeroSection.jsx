@@ -1,215 +1,149 @@
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import AnimatedCounter from './AnimatedCounter.jsx';
+import React from 'react';
+import { motion } from 'framer-motion';
 import PlaceholderImage from './PlaceholderImage.jsx';
-import HeroAdmissionsCard from './HeroAdmissionsCard.jsx';
 
 const containerVariants = {
   hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.14, delayChildren: 0.24 },
-  },
+  visible: { opacity: 1, transition: { staggerChildren: 0.09, delayChildren: 0.05 } },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 44, scale: 0.985, filter: 'blur(10px)' },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    filter: 'blur(0px)',
-    transition: { duration: 1.1, ease: [0.16, 1, 0.3, 1] },
-  },
+  hidden: { opacity: 0, y: 22 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.75, ease: [0.16, 1, 0.3, 1] } },
 };
 
-const stats = [
-  { value: 300, label: 'New Admissions', suffix: '+' },
-  { value: 1200, label: 'Active Students', suffix: '+' },
-  { value: 99, label: 'Successful Results', suffix: '%' },
-  { value: 15, label: 'Years of Excellence', suffix: '+' },
+const pins = [
+  { type: 'students', label: 'Our Students', aspect: '4/5' },
+  { type: 'classroom', label: 'Smart Classrooms', aspect: '1/1' },
+  { type: 'sports', label: 'Sports & Play', aspect: '1/1' },
+  { type: 'lab', label: 'Science Lab', aspect: '4/5' },
 ];
 
-export default function HeroContent() {
-  const sectionRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start start', 'end start'],
-  });
-  const watermarkY = useTransform(scrollYProgress, [0, 1], [0, 36]);
-  const contentY = useTransform(scrollYProgress, [0, 1], [0, -32]);
-  const imageY = useTransform(scrollYProgress, [0, 1], [0, -46]);
-
+function PinTile({ type, label, aspect }) {
   return (
-    <div ref={sectionRef} className="relative min-h-[92vh] lg:min-h-[calc(100vh-2.5rem)] flex items-center pt-16 lg:pt-20 overflow-hidden bg-white">
-      <div className="absolute inset-0 bg-white z-0" />
-
-      <motion.div
-        className="absolute inset-y-0 right-[-8%] hidden lg:flex items-center justify-center z-[1] pointer-events-none select-none"
-        style={{ y: watermarkY }}
-      >
-        <div className="relative flex items-center justify-center">
-          <img
-            src={(import.meta.env.BASE_URL + '/logo.svg').replace('//', '/')}
-            alt=""
-            className="w-[520px] xl:w-[680px] 2xl:w-[760px] opacity-[0.04] object-contain"
-            aria-hidden="true"
-          />
-        </div>
-      </motion.div>
-
-      <div className="absolute top-20 -right-20 w-40 sm:w-64 lg:w-96 h-40 sm:h-64 lg:h-96 bg-brand-50 rounded-full" />
-      <div className="absolute -bottom-20 -left-20 w-40 sm:w-80 lg:w-[500px] h-40 sm:h-80 lg:h-[500px] bg-teal-50 rounded-full" />
-
-      <motion.div
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16 relative z-10 w-full"
-        style={{ y: contentY }}
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-          <div className="lg:col-span-6 text-center lg:text-left relative">
-            <div className="relative z-10">
-            <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-4 py-2 bg-brand-50 rounded-full mb-5 border border-brand-100">
-              <motion.span
-                className="w-1.5 h-1.5 bg-brand-600 rounded-full"
-                animate={{ scale: [1, 1.5, 1] }}
-                transition={{ duration: 3.2, repeat: Infinity, ease: 'easeInOut' }}
-              />
-              <span className="text-brand-700 font-semibold text-sm">English Medium | SSC Affiliated since 2011</span>
-            </motion.div>
-
-            <motion.h1 variants={itemVariants} className="text-[2.25rem] max-[380px]:text-[2rem] sm:text-5xl lg:text-[3.7rem] xl:text-[4.4rem] font-bold text-gray-950 leading-[1.05] mb-4">
-              <span className="block">Mother's Care</span>
-              <span className="block text-brand-600">High School</span>
-            </motion.h1>
-
-            <motion.div variants={itemVariants} className="mb-4">
-              <span className="text-base sm:text-lg lg:text-xl text-brand-500 font-semibold italic leading-relaxed block max-w-xl">
-                &ldquo;While you take care of the world, we take care of your children&rdquo;
-              </span>
-            </motion.div>
-
-            <motion.div variants={itemVariants} className="mb-6">
-              <span className="text-xs sm:text-sm uppercase tracking-[0.2em] text-brand-500 font-semibold">Established 2011 &middot; Adilabad &middot; Telangana</span>
-            </motion.div>
-
-            <motion.p variants={itemVariants} className="text-base sm:text-lg lg:text-[1.08rem] text-gray-700 mb-7 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-              A premier English Medium school where every child is nurtured with care, guided with purpose, and prepared to lead with confidence. We don&rsquo;t just educate &mdash; we build character, spark curiosity, and create a home away from home.
-            </motion.p>
-
-            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <motion.a
-                href="#contact"
-                className="group inline-flex items-center justify-center px-8 py-4 bg-brand-600 text-white font-bold rounded-xl shadow-md shadow-brand-600/15 hover:shadow-lg hover:shadow-brand-600/25"
-                whileHover={{ y: -2, scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <span>Enroll Now</span>
-                <svg className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </motion.a>
-              <motion.a
-                href="#about"
-                className="group inline-flex items-center justify-center px-8 py-4 bg-white text-gray-700 font-semibold rounded-xl border-2 border-gray-200 hover:border-brand-500 hover:text-brand-600"
-                whileHover={{ y: -2 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <svg className="w-5 h-5 mr-2 text-gray-400 group-hover:text-brand-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                </svg>
-                <span>Discover Our School</span>
-              </motion.a>
-            </motion.div>
-
-            <motion.div variants={itemVariants} className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-5 mt-8 lg:mt-10 pt-5 lg:pt-6 border-t border-gray-200/70">
-              {stats.map((stat) => (
-                <AnimatedCounter
-                  key={stat.label}
-                  value={stat.value}
-                  label={stat.label}
-                  suffix={stat.suffix || ''}
-                />
-              ))}
-            </motion.div>
-            </div>
-          </div>
-
-          <div className="lg:col-span-6 relative">
-            <motion.div
-              className="relative"
-              style={{ y: imageY }}
-              variants={itemVariants}
-            >
-              <div className="lg:hidden relative mb-8">
-                <div className="relative bg-gray-50 rounded-2xl p-1 shadow-md border border-gray-100">
-                  <PlaceholderImage type="classroom" aspect="16/9" className="rounded-xl" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent rounded-xl" />
-                </div>
-                <div className="relative -mt-8 left-0 right-0 z-10 px-2 sm:px-4">
-                  <div className="max-w-[280px] sm:max-w-xs mx-auto">
-                    <HeroAdmissionsCard />
-                  </div>
-                </div>
-              </div>
-
-              <div className="relative hidden lg:block max-w-[560px] ml-auto">
-                <div className="relative bg-gray-50 rounded-3xl p-2 shadow-md border border-gray-100">
-                  <div className="rounded-2xl overflow-hidden relative">
-                    <PlaceholderImage type="students" aspect="4/3" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/5 via-transparent to-transparent" />
-                  </div>
-                </div>
-
-                <motion.div
-                  className="absolute -top-4 -right-3 bg-white rounded-2xl p-3 shadow-md border border-gray-100"
-                  animate={{ y: [0, -8, 0] }}
-                  transition={{ duration: 7, delay: 0.5, repeat: Infinity, ease: 'easeInOut' }}
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="w-11 h-11 bg-brand-50 rounded-full flex items-center justify-center">
-                      <svg className="w-5 h-5 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="font-bold text-gray-800 text-sm">English Medium</p>
-                      <p className="text-xs text-gray-500">SSC Board</p>
-                    </div>
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  className="absolute bottom-5 left-5 bg-white rounded-2xl p-3 shadow-md border border-gray-100"
-                  animate={{ y: [0, 6, 0] }}
-                  transition={{ duration: 8, delay: 1, repeat: Infinity, ease: 'easeInOut' }}
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="w-11 h-11 bg-brand-50 rounded-full flex items-center justify-center">
-                      <svg className="w-5 h-5 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="font-bold text-gray-800 text-sm">SSC Board</p>
-                      <p className="text-xs text-gray-500">Affiliated</p>
-                    </div>
-                  </div>
-                </motion.div>
-              </div>
-
-              <div className="hidden lg:block">
-                <div className="absolute right-5 bottom-5 w-56 xl:w-60">
-                  <HeroAdmissionsCard />
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </motion.div>
-    </div>
+    <motion.div
+      className="relative rounded-2xl overflow-hidden bg-gray-100 shadow-sm border border-gray-100"
+      variants={itemVariants}
+      whileHover={{ y: -5 }}
+      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+    >
+      <PlaceholderImage type={type} aspect={aspect} label={label} className="w-full" />
+    </motion.div>
   );
 }
 
+function AdmissionsPin() {
+  return (
+    <motion.a
+      href="#contact"
+      className="relative rounded-2xl overflow-hidden bg-brand-600 p-5 flex flex-col justify-center min-h-[116px] shadow-sm"
+      variants={itemVariants}
+      whileHover={{ y: -5 }}
+      whileTap={{ scale: 0.98 }}
+    >
+      <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-brand-200">Admissions Open</span>
+      <span className="text-white font-bold text-lg leading-tight mt-1">2026&ndash;27 Academic Year</span>
+      <span className="text-white/80 text-sm mt-1">Limited seats &middot; Jr. KG to Class X</span>
+    </motion.a>
+  );
+}
+
+export default function HeroContent() {
+  return (
+    <section className="relative bg-white overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center py-14 lg:py-24 lg:min-h-[calc(100vh-2.5rem)]">
+          <div className="lg:col-span-6 lg:pr-8">
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              className="text-center lg:text-left"
+            >
+              <motion.div variants={itemVariants} className="flex items-center justify-center lg:justify-start gap-3 mb-6">
+                <span className="h-px w-8 bg-brand-600" />
+                <span className="text-xs sm:text-sm font-semibold uppercase tracking-[0.22em] text-brand-600">English Medium &middot; SSC Board</span>
+              </motion.div>
+
+              <motion.h1
+                variants={itemVariants}
+                className="text-[2.75rem] max-[380px]:text-[2.25rem] sm:text-6xl lg:text-[4.25rem] font-bold text-gray-950 leading-[1.02] tracking-[-0.02em] mb-5"
+              >
+                Mother&rsquo;s Care
+                <span className="block text-brand-600">High School</span>
+              </motion.h1>
+
+              <motion.p
+                variants={itemVariants}
+                className="text-lg sm:text-xl text-gray-500 font-medium italic mb-5"
+              >
+                &ldquo;While you take care of the world, we take care of your children.&rdquo;
+              </motion.p>
+
+              <motion.p
+                variants={itemVariants}
+                className="text-base sm:text-lg text-gray-700 leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8"
+              >
+                A caring, values-driven English Medium school in Adilabad &mdash; where every child is known, guided, and given the confidence to thrive.
+              </motion.p>
+
+              <motion.div
+                variants={itemVariants}
+                className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start"
+              >
+                <motion.a
+                  href="#contact"
+                  className="group inline-flex items-center justify-center px-7 py-3.5 bg-brand-600 text-white font-semibold rounded-xl hover:bg-brand-700 transition-colors"
+                  whileHover={{ y: -2 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <span>Enroll Now</span>
+                  <svg className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </motion.a>
+                <motion.a
+                  href="#about"
+                  className="inline-flex items-center justify-center px-7 py-3.5 bg-white text-gray-800 font-semibold rounded-xl border border-gray-200 hover:border-brand-400 hover:text-brand-600 transition-colors"
+                  whileHover={{ y: -2 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <span>Discover Our School</span>
+                </motion.a>
+              </motion.div>
+
+              <motion.div
+                variants={itemVariants}
+                className="mt-8 pt-6 border-t border-gray-100 flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-sm text-gray-500"
+              >
+                <span className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-brand-600" /> SSC Board Affiliated</span>
+                <span className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-brand-600" /> Established 2011</span>
+                <span className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-brand-600" /> Adilabad, Telangana</span>
+              </motion.div>
+            </motion.div>
+          </div>
+
+          <div className="lg:col-span-6">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:hidden">
+              {pins.map((p) => (
+                <PinTile key={p.label} {...p} />
+              ))}
+            </div>
+
+            <div className="hidden lg:grid lg:grid-cols-2 gap-4 max-w-[560px] ml-auto">
+              <motion.div variants={containerVariants} initial="hidden" animate="visible" className="flex flex-col gap-4">
+                <PinTile type="students" label="Our Students" aspect="4/5" />
+                <PinTile type="classroom" label="Smart Classrooms" aspect="1/1" />
+              </motion.div>
+              <motion.div variants={containerVariants} initial="hidden" animate="visible" className="flex flex-col gap-4 lg:mt-16">
+                <PinTile type="sports" label="Sports &amp; Play" aspect="1/1" />
+                <PinTile type="lab" label="Science Lab" aspect="4/5" />
+                <AdmissionsPin />
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
